@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
+import { Card, Button, CardHeader, CardFooter, CardBody,
+    CardTitle, CardText } from 'reactstrap';
 
 class Footer extends Component {
     render() {
         return (
             <div>
-                <h1>I am a pretty footer</h1>
+                <Card>
+                    <CardFooter>Copyright 2017, Wakyma - Take Care of your Pet</CardFooter>
+                </Card>
             </div>
         );
     }

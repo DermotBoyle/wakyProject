@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import NavBar from "./layout/navbar";
-import Veterinarias from "./veterinarias"
 import Footer from "./layout/footer";
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import Home from "./Home.js";
