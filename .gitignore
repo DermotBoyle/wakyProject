@@ -4,6 +4,13 @@
 /node_modules
 /.pnp
 .pnp.js
+#Web Storm
+/.idea
+.idea
+.idea/
+/.iml
+.iml
+*.iml
 
 # testing
 /coverage
