@@ -1,0 +1,17 @@
+button.btn-success {
+  padding: 0%;
+  width: 7rem;
+  background-color: #4496ae;
+  border: none;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  height: 1.3rem;
+}
+
+nav {
+  font-size: 0.8rem;
+}
+
+a.nav-link {
+  margin-right: 1rem;
+}
