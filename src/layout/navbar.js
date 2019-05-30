@@ -34,19 +34,22 @@ export default class NavBar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/blog/">Blog</NavLink>
+                <NavLink href="/">Blog</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/veterenarias/">
+                <NavLink href="/veterinaria">
+                  {/*This link does not work on wireframe. For now it will take you to Veterinaria */}
                   ¿Tienes una veterenaria?
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/contacto/">Contacto</NavLink>
+                {/*This link does not work on wireframe */}
+                <NavLink href="/contacto">Contacto</NavLink>
               </NavItem>
-              <Button color="success" size="xs">
+               {/*the button has to have onClick stuff for register */}
+              <Button to="registration" color="success" size="xs">
                 Iniciar Sesion
-              </Button>{" "}
+              </Button>
             </Nav>
           </Collapse>
         </Navbar>

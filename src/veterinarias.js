@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import "./layout/navbar.js";
-import NavBar from "./layout/navbar";
 import { InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
 
 // Easy Page

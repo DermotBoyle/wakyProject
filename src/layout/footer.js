@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
-class Veterinaria extends Component {
+class Footer extends Component {
     render() {
         return (
             <div>
-               <h1>Hi I am the page with map</h1>
+                <h1>I am a pretty footer</h1>
             </div>
         );
     }
 }
 
-export default Veterinaria;
+export default Footer;

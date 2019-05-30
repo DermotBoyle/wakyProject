@@ -2,24 +2,26 @@ import React from "react";
 import "./App.css";
 import NavBar from "./layout/navbar";
 import Veterinarias from "./veterinarias"
-// import { Router, Route, Switch } from "react-router";
+import Footer from "./layout/footer";
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import Home from "./Home.js";
+import Veterinaria from "./veterinaria";
+import Contacto from "./Contacto";
 
 function App() {
   return (
     <div>
-      <NavBar />
-        {/*<BrowserRouter>*/}
-        {/*    <div>*/}
-        {/*        <NavBar />*/}
-        {/*        <Switch>*/}
-        {/*            <Route exact path="/" component={Home} />*/}
-        {/*            <Route path="#" component={Tienes una veterinaria} />*/}
-        {/*            <Route path="/timer" component={contacto}/>*/}
-        {/*            <Route path="/myapi" component={iniciar seccion }/>*/}
-        {/*        </Switch>*/}
-        {/*    </div>*/}
-        {/*</BrowserRouter>*/}
-
+        <BrowserRouter>
+            <div>
+                <NavBar />
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/veterinaria" component={Veterinaria} />
+                    <Route exact path="/contacto" component={Contacto} />
+                </Switch>
+                <Footer />
+            </div>
+        </BrowserRouter>
     </div>
   );
 }
