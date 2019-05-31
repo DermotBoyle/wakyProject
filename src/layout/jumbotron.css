@@ -8,10 +8,11 @@
   height: 23rem;
 }
 
-button.btn.btn-secondary {
+button.danger.btn.btn-secondary {
   color: white;
   background-color: #4496ae;
-  border-radius: 2rem;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .cont {

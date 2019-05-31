@@ -22,7 +22,7 @@ const Head = props => {
             <InputGroup>
               <Input />
               <InputGroupAddon addonType="append">
-                <Button classname="searchbutton">Buscar</Button>
+                <Button className="danger">Buscar</Button>
               </InputGroupAddon>
             </InputGroup>
           </Container>
