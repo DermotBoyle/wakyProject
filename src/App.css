@@ -1,3 +1,19 @@
 .App {
   text-align: center;
 }
+button.btn-success {
+  padding: 0%;
+  width: 7rem;
+  background-color: #4496ae;
+  border: none;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  height: 1.3rem;
+}
+
+.card-footer.card-footer {
+  background-color: #4496ae;
+  border-top: 1px solid rgba(0,0,0,.125);
+  color: whitesmoke;
+  font-size: 0.8rem;
+}
