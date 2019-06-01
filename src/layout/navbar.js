@@ -28,7 +28,7 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="white" light expand="md">
+        <Navbar color="white" light expand="md" style={{boxShadow: "0 4px 4px -2px rgba(0,0,0,.2)"}}>
           <img src={Logo} width="13%" />
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
