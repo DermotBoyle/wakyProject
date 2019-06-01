@@ -15,15 +15,15 @@ class SimpleMap extends Component {
     render() {
         return (
             // Important! Always set the container height explicitly
-            <div style={{ height: '50vh', width: '100vh' }}>
+            <div style={{ height: '200vh', width: '100vh' }}>
                 <GoogleMapReact
                    // bootstrapURLKeys={{ key: }}
                     defaultCenter={this.props.center}
                     defaultZoom={this.props.zoom}
                 >
                     <AnyReactComponent
-                        lat={59.955413}
-                        lng={30.337844}
+                        lat={36.5099}
+                        lng={-4.88635}
                         text="My Marker"
                     />
                 </GoogleMapReact>
