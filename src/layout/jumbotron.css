@@ -24,6 +24,8 @@ div.input-group {
   border-radius: 2rem;
   width: 380px;
   border: 10px solid rgb(255, 255, 255, 0.5);
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
 }
 
 input.form-control-lg.form-control {

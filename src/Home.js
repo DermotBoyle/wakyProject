@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import NavBar from "./layout/navbar";
 import Head from "./layout/hero";
+import SimpleSlider from "./layout/vetscarousel";
 
 class Home extends Component {
   render() {
     return (
       <div>
         <Head />
+        <SimpleSlider />
       </div>
     );
   }

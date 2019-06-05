@@ -1,0 +1,20 @@
+h2.newvets {
+  font-family: "Roboto Slab", serif;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  color: #586c91;
+}
+
+div.linecont {
+  padding-left: 47rem;
+  padding-right: 47rem;
+}
+
+hr.linedetail {
+  display: block;
+  height: 10px;
+  border: 0;
+  border-top: 5px solid #586c91;
+  margin: 1em;
+}

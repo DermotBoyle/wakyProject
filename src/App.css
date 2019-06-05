@@ -13,7 +13,7 @@ button.btn-success {
 
 .card-footer.card-footer {
   background-color: #4496ae;
-  border-top: 1px solid rgba(0,0,0,.125);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
   color: whitesmoke;
   font-size: 0.8rem;
 }
