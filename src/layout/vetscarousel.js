@@ -1,6 +1,17 @@
 import React, { Component } from "react";
 import "./vetcarousel.css";
 import Slider from "react-slick";
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardLink,
+  CardTitle,
+  CardSubtitle
+} from "reactstrap";
+
+import placeholder from "../images/placeholder.png";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -37,22 +48,59 @@ export default class SimpleSlider extends Component {
     };
     return (
       <>
-        <article>
+        <article className="carouselcont">
           <h2 className="newvets">Nuevas Veterinarias</h2>
           <div className="linecont">
             <hr className="linedetail" />
           </div>
           <div className="slider">
-            <h2> Single Item</h2>
             <Slider {...settings}>
-              <div>
-                <h3>1</h3>
+              <div className="carsearch">
+                <Card>
+                  <img width="50%" src={placeholder} alt="Card image cap" />
+                  <CardBody>
+                    <hr />
+                    <CardText>
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </CardText>
+                    <CardLink href="#">Card Link</CardLink>
+                    <CardLink href="#">Another Link</CardLink>
+                  </CardBody>
+                </Card>
               </div>
               <div>
-                <h3>2</h3>
+                <Card>
+                  <CardBody>
+                    <CardTitle>Card title</CardTitle>
+                    <CardSubtitle>Card subtitle</CardSubtitle>
+                  </CardBody>
+                  <img width="50%" src={placeholder} alt="Card image cap" />
+                  <CardBody>
+                    <hr />
+                    <CardText>
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </CardText>
+                    <CardLink href="#">Card Link</CardLink>
+                    <CardLink href="#">Another Link</CardLink>
+                  </CardBody>
+                </Card>
               </div>
               <div>
-                <h3>3</h3>
+                <Card>
+                  <CardBody />
+                  <img width="100%" src={placeholder} alt="Card image cap" />
+                  <CardBody>
+                    <hr />
+                    <CardText>
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </CardText>
+                    <CardLink href="#">Card Link</CardLink>
+                    <CardLink href="#">Another Link</CardLink>
+                  </CardBody>
+                </Card>
               </div>
               <div>
                 <h3>4</h3>

@@ -18,3 +18,13 @@ hr.linedetail {
   border-top: 5px solid #586c91;
   margin: 1em;
 }
+
+article.carouselcont {
+  padding: 30px;
+}
+
+div.card {
+  width: 30rem;
+  text-align: center;
+  margin: auto;
+}
