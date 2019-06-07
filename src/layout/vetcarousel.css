@@ -4,6 +4,7 @@ h2.newvets {
   margin-top: 3rem;
   margin-bottom: 3rem;
   color: #586c91;
+  font-weight: bold;
 }
 
 div.linecont {
@@ -19,12 +20,6 @@ hr.linedetail {
   margin: 1em;
 }
 
-article.carouselcont {
-  padding: 30px;
-}
-
-div.card {
-  width: 30rem;
-  text-align: center;
-  margin: auto;
+img.placeholder {
+  width: 300px;
 }

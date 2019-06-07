@@ -8,6 +8,15 @@ const Veterinary = require("./model/Veterinary");
 
 server.set("port", port);
 
+server.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 /// ruta 0: /       "Hola"
 
 server.use("/", express.static(path.join(__dirname, "/build")));

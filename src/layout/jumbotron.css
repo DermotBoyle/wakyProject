@@ -5,7 +5,7 @@
   background-image: url("../images/overlay.jpg");
   background-position: 0px -140px;
   background-size: 100%;
-  height: 23rem;
+  height: 32rem;
 }
 
 button.danger.btn.btn-secondary {
@@ -22,14 +22,16 @@ button.danger.btn.btn-secondary {
 div.input-group {
   display: inline-flex;
   border-radius: 2rem;
-  width: 380px;
+  width: 37rem;
   border: 10px solid rgb(255, 255, 255, 0.5);
-  border-bottom-left-radius: 1rem;
-  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
 }
 
-input.form-control-lg.form-control {
+input.form-control {
   display: initial;
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
 }
 
 .jumbotron-fluid {
@@ -37,9 +39,11 @@ input.form-control-lg.form-control {
 }
 
 p.display-3 {
-  font-size: 30px;
+  font-size: 50px;
+  font-weight: bold;
   color: white;
   font-family: "Roboto Slab", serif;
+  margin-top: 4rem;
 }
 
 p.lead {

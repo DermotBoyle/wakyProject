@@ -4,12 +4,19 @@ button.btn-success {
   background-color: #4496ae;
   border: none;
   margin-top: 8px;
-  font-size: 0.8rem;
-  height: 1.3rem;
+  font-size: 0.9rem;
+  height: 1.6rem;
+  border-radius: 0.5rem;
 }
 
 nav {
-  font-size: 0.8rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-collapse {
+    margin-right: 3rem;
+  }
 }
 
 a.nav-link {

@@ -20,7 +20,7 @@ const Head = props => {
               Descubre las mejores veterinarias cerca de ti
             </p>
             <InputGroup>
-              <Input />
+              <Input className="vetsearch" placeholder="Calle,Barrio o CP" />
               <InputGroupAddon addonType="append">
                 <Button className="danger">Buscar</Button>
               </InputGroupAddon>

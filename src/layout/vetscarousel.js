@@ -1,120 +1,112 @@
-import React, { Component } from "react";
-import "./vetcarousel.css";
-import Slider from "react-slick";
+import React, { Component, Fragment } from "react";
 import {
   Card,
   CardImg,
   CardText,
   CardBody,
-  CardLink,
   CardTitle,
-  CardSubtitle
+  CardSubtitle,
+  Button
 } from "reactstrap";
-
 import placeholder from "../images/placeholder.png";
+import "./vetcarousel.css";
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "red" }}
-      onClick={onClick}
-    />
-  );
-}
+//import urlRoot from "./urlRoot.js"
+const urlRoot = window.location.href.indexOf("localhost")
+  ? "http://localhost:3001"
+  : "";
 
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "green" }}
-      onClick={onClick}
-    />
-  );
-}
-
-export default class SimpleSlider extends Component {
-  render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />
+class NewVetsCarousel extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      veterinarias: []
     };
+  }
+
+  componentDidMount = () => {
+    fetch(urlRoot + "/api/veterinary") // "/api/veterinary?cp=" + e.target.value
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          veterinarias: data
+        });
+      });
+  };
+  /*
+  nextVeterinaria = () => {
+    const newIndex = this.state.veterinaria.index + 1;
+    this.setState({
+      veterinaria: data.veterinarias[newIndex]
+    });
+  };
+
+  prevVeterinaria = () => {
+    const newIndex = this.state.veterinaria.index - 1;
+    this.setState({
+      veterinaria: data.veterinarias[newIndex]
+    });
+  }; */
+
+  render() {
+    const veterinarias = this.state.veterinarias || [];
     return (
-      <>
-        <article className="carouselcont">
-          <h2 className="newvets">Nuevas Veterinarias</h2>
-          <div className="linecont">
-            <hr className="linedetail" />
+      <Fragment>
+        <div className="carousel">
+          {/* <button
+            onClick={() => this.nextVeterinaria()}
+            disabled={veterinaria.index === data.veterinarias.length - 1}
+        > 
+            Next
+          </button>
+
+          <button
+            onClick={() => this.prevVeterinaria()}
+            disabled={veterinaria.index === 0}
+          >
+            Prev
+          </button> */}
+        </div>
+
+        <div className="page">
+          <div className="cardWrapper">
+            {veterinarias.map(veterinaria => (
+              <>
+                <div>
+                  <div>
+                    <Card>
+                      <CardImg
+                        className="placeholder"
+                        top
+                        width="100%"
+                        src={placeholder}
+                        alt="Card image cap"
+                      />
+                      <CardBody>
+                        <CardTitle>{veterinaria.name}</CardTitle>
+                        <CardSubtitle>Loca to you!</CardSubtitle>
+                        <CardText>{veterinaria.description}</CardText>
+                        <Button>Button</Button>
+                      </CardBody>
+                    </Card>
+                  </div>
+                  {/* <Button
+                    onClick={() => this.favourite(movie.id)}
+                    color="danger"
+                  >
+                    Favourie
+                  </Button> */}
+                </div>
+              </>
+            ))}
+            <div className="cardSlider">
+              {/* <Card verterinaria={vetcard} /> */}
+            </div>
           </div>
-          <div className="slider">
-            <Slider {...settings}>
-              <div className="carsearch">
-                <Card>
-                  <img width="50%" src={placeholder} alt="Card image cap" />
-                  <CardBody>
-                    <hr />
-                    <CardText>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </CardText>
-                    <CardLink href="#">Card Link</CardLink>
-                    <CardLink href="#">Another Link</CardLink>
-                  </CardBody>
-                </Card>
-              </div>
-              <div>
-                <Card>
-                  <CardBody>
-                    <CardTitle>Card title</CardTitle>
-                    <CardSubtitle>Card subtitle</CardSubtitle>
-                  </CardBody>
-                  <img width="50%" src={placeholder} alt="Card image cap" />
-                  <CardBody>
-                    <hr />
-                    <CardText>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </CardText>
-                    <CardLink href="#">Card Link</CardLink>
-                    <CardLink href="#">Another Link</CardLink>
-                  </CardBody>
-                </Card>
-              </div>
-              <div>
-                <Card>
-                  <CardBody />
-                  <img width="100%" src={placeholder} alt="Card image cap" />
-                  <CardBody>
-                    <hr />
-                    <CardText>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </CardText>
-                    <CardLink href="#">Card Link</CardLink>
-                    <CardLink href="#">Another Link</CardLink>
-                  </CardBody>
-                </Card>
-              </div>
-              <div>
-                <h3>4</h3>
-              </div>
-              <div>
-                <h3>5</h3>
-              </div>
-              <div>
-                <h3>6</h3>
-              </div>
-            </Slider>
-          </div>
-        </article>
-      </>
+        </div>
+      </Fragment>
     );
   }
 }
+
+export default NewVetsCarousel;
