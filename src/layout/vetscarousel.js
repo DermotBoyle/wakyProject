@@ -50,57 +50,48 @@ class NewVetsCarousel extends Component {
 
   render() {
     const veterinarias = this.state.veterinarias || [];
+
     return (
       <Fragment>
-        <div className="carousel">
-          {/* <button
-            onClick={() => this.nextVeterinaria()}
-            disabled={veterinaria.index === data.veterinarias.length - 1}
-        > 
-            Next
-          </button>
-
-          <button
-            onClick={() => this.prevVeterinaria()}
-            disabled={veterinaria.index === 0}
-          >
-            Prev
-          </button> */}
+        <div>
+          <h2 className="newvets">Nuevas veterinarias</h2>
         </div>
+        <div className="carousel">
+          <div className="col">
+            <div className={`cards-slider active-slide-${veterinarias.name}`}>
+              {veterinarias.map(veterinaria => (
+                <>
+                  <div className="cards-slider">
+                    <div className="cards-slider-wrapper">
+                      <Card className="vetscarousel">
+                        <CardImg
+                          className="placeholder"
+                          top
+                          width="100%"
+                          src={placeholder}
+                          alt="Card image cap"
+                        />
+                        <CardBody className="vetcarobody">
+                          <CardTitle className="vetname">
+                            {veterinaria.name}
+                          </CardTitle>
+                          <p className="vetupdate">{veterinaria.updatedAt}</p>
+                          <hr />
+                          <CardSubtitle className="vetcp">
+                            CP :{veterinaria.cp}
+                          </CardSubtitle>
+                          <CardText>
+                            <a href={veterinaria.web}>Website</a>
+                          </CardText>
 
-        <div className="page">
-          <div className="cardWrapper">
-            {veterinarias.map(veterinaria => (
-              <>
-                <div>
-                  <div>
-                    <Card>
-                      <CardImg
-                        className="placeholder"
-                        top
-                        width="100%"
-                        src={placeholder}
-                        alt="Card image cap"
-                      />
-                      <CardBody>
-                        <CardTitle>{veterinaria.name}</CardTitle>
-                        <CardSubtitle>Loca to you!</CardSubtitle>
-                        <CardText>{veterinaria.description}</CardText>
-                        <Button>Button</Button>
-                      </CardBody>
-                    </Card>
+                          <hr />
+                          <Button className="vetcarobutton">Button</Button>
+                        </CardBody>
+                      </Card>
+                    </div>
                   </div>
-                  {/* <Button
-                    onClick={() => this.favourite(movie.id)}
-                    color="danger"
-                  >
-                    Favourie
-                  </Button> */}
-                </div>
-              </>
-            ))}
-            <div className="cardSlider">
-              {/* <Card verterinaria={vetcard} /> */}
+                </>
+              ))}
             </div>
           </div>
         </div>
