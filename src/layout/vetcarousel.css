@@ -5,6 +5,11 @@ h2.newvets {
   margin-bottom: 3rem;
   color: #586c91;
   font-weight: bold;
+  background-color: #f9f9f9;
+}
+
+div.container1 {
+  background-color: #f9f9f9;
 }
 
 div.linecont {
@@ -60,10 +65,49 @@ p.vetupdate {
   font-size: 0.8rem;
 }
 
-div.carousel {
+div.col {
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  -webkit-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  box-orient: horizontal;
+  width: auto;
+  width: 50rem;
+
   display: flex;
+
   flex-wrap: nowrap;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+  /* -webkit-overflow-scrolling: touch; */
+}
+
+div.carousel {
+  display: flex;
+  justify-content: center;
+}
+
+div.container1 {
+  text-align: -webkit-center;
+}
+
+div.btncont {
+  display: flex;
+  justify-content: space-around;
+}
+
+button.Next {
+  position: absolute;
+  left: 47rem;
+  z-index: 1;
+  top: 18rem;
+  opacity: 0.2;
+  border-radius: 50%;
+}
+
+button.Prev {
+  position: absolute;
+  z-index: 1;
+  top: 18rem;
+  opacity: 0.2;
+  border-radius: 50%;
 }
