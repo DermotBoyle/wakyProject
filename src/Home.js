@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.css";
 import Head from "./layout/hero";
 import NewVetsCarousel from "./layout/vetscarousel";
 import Blog from "./layout/blog";

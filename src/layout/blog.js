@@ -111,7 +111,7 @@ class Blog extends Component {
               </Col>
             </Row>
             <div className="btnrow">
-              <Button className="gotoBlog">Ir al Blob</Button>
+              <Button className="gotoBlog">Ir al Blog</Button>
             </div>
           </Container>
         </div>

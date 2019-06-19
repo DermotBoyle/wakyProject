@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import Slider from "react-slick";
 import {
   Card,
   CardImg,
@@ -69,60 +70,189 @@ class NewVetsCarousel extends Component {
 
   render() {
     const veterinarias = this.state.veterinarias || [];
+    const veterinariasSortedByDate = veterinarias.sort(function compare(a, b) {
+      return new Date(b.updatedAt) - new Date(a.updatedAt);
+    });
+
+    var settings = {
+      dots: true,
+      arrows: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+
     const activeIndex = this.state;
     return (
       <Fragment>
         <div className="container1">
           <h2 className="newvets">Nuevas veterinarias</h2>
-          <div className="btncont" />
-          <div className="col">
-            <Button className="Prev" direction="previous" onClick={this.prev}>
-              {" "}
-              &lt;{" "}
-            </Button>
-            <Button className="Next" direction="next" onClick={this.next}>
-              >
-            </Button>
-            {veterinarias.map(veterinaria => (
-              <div
-                className="cards-slider"
-                activeIndex={activeIndex}
-                next={this.next}
-                previous={this.previous}
-              >
-                <div className="cards-slider-wrapper">
-                  <Card
-                    className="vetscarousel"
-                    key={veterinaria.length}
-                    activeIndex={activeIndex}
-                  >
-                    <CardImg
-                      className="placeholder"
-                      top
-                      width="100%"
-                      src={placeholder}
-                      alt="Card image cap"
-                    />
-                    <CardBody className="vetcarobody">
-                      <CardTitle className="vetname">
-                        {veterinaria.name}
-                      </CardTitle>
-                      <p className="vetupdate">{veterinaria.updatedAt}</p>
-                      <hr />
-                      <CardSubtitle className="vetcp">
-                        CP :{veterinaria.cp}
-                      </CardSubtitle>
-                      <CardText>
-                        <a href={veterinaria.web}>Website</a>
-                      </CardText>
+          <div className="linecont">
+            <hr className="newvetline" />
+          </div>
+          <div className="SliderContainer">
+            <Slider {...settings}>
+              <div>
+                <div className="cards-slider">
+                  {veterinariasSortedByDate.slice(0, 3).map(veterinaria => (
+                    <div className="card-slider">
+                      <Card
+                        className="vetscarousel"
+                        key={veterinaria.length}
+                        activeIndex={activeIndex}
+                      >
+                        <CardImg
+                          className="placeholder"
+                          top
+                          width="100%"
+                          src={placeholder}
+                          alt="Card image cap"
+                        />
+                        <CardBody className="vetcarobody">
+                          <CardTitle className="vetname">
+                            {veterinaria.name}
+                          </CardTitle>
+                          <p className="vetupdate">{veterinaria.updatedAt}</p>
+                          <hr />
+                          <CardSubtitle className="vetcp">
+                            CP :{veterinaria.cp}
+                          </CardSubtitle>
+                          <CardText>
+                            <a href={veterinaria.web}>Website</a>
+                          </CardText>
 
-                      <hr />
-                      <Button className="vetcarobutton">Button</Button>
-                    </CardBody>
-                  </Card>
+                          <hr />
+                          <Button className="vetcarobutton">Button</Button>
+                        </CardBody>
+                      </Card>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
+
+              <div>
+                <div className="cards-slider">
+                  {veterinariasSortedByDate.slice(4, 7).map(veterinaria => (
+                    <div className="card-slider">
+                      <Card
+                        className="vetscarousel"
+                        key={veterinaria.length}
+                        activeIndex={activeIndex}
+                      >
+                        <CardImg
+                          className="placeholder"
+                          top
+                          width="100%"
+                          src={placeholder}
+                          alt="Card image cap"
+                        />
+                        <CardBody className="vetcarobody">
+                          <CardTitle className="vetname">
+                            {veterinaria.name}
+                          </CardTitle>
+                          <p className="vetupdate">{veterinaria.updatedAt}</p>
+                          <hr />
+                          <CardSubtitle className="vetcp">
+                            CP :{veterinaria.cp}
+                          </CardSubtitle>
+                          <CardText>
+                            <a href={veterinaria.web}>Website</a>
+                          </CardText>
+
+                          <hr />
+                          <Button className="vetcarobutton">Button</Button>
+                        </CardBody>
+                      </Card>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div className="cards-slider">
+                    {veterinariasSortedByDate.slice(7, 10).map(veterinaria => (
+                      <div className="card-slider">
+                        <Card
+                          className="vetscarousel"
+                          key={veterinaria.length}
+                          activeIndex={activeIndex}
+                        >
+                          <CardImg
+                            className="placeholder"
+                            top
+                            width="100%"
+                            src={placeholder}
+                            alt="Card image cap"
+                          />
+                          <CardBody className="vetcarobody">
+                            <CardTitle className="vetname">
+                              {veterinaria.name}
+                            </CardTitle>
+                            <p className="vetupdate">{veterinaria.updatedAt}</p>
+                            <hr />
+                            <CardSubtitle className="vetcp">
+                              CP :{veterinaria.cp}
+                            </CardSubtitle>
+                            <CardText>
+                              <a href={veterinaria.web}>Website</a>
+                            </CardText>
+
+                            <hr />
+                            <Button className="vetcarobutton">Button</Button>
+                          </CardBody>
+                        </Card>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div className="cards-slider">
+                    {veterinariasSortedByDate.slice(10, 13).map(veterinaria => (
+                      <div className="card-slider">
+                        <Card
+                          className="vetscarousel"
+                          key={veterinaria.length}
+                          activeIndex={activeIndex}
+                        >
+                          <CardImg
+                            className="placeholder"
+                            top
+                            width="100%"
+                            src={placeholder}
+                            alt="Card image cap"
+                          />
+                          <CardBody className="vetcarobody">
+                            <CardTitle className="vetname">
+                              {veterinaria.name}
+                            </CardTitle>
+                            <p className="vetupdate">{veterinaria.updatedAt}</p>
+                            <hr />
+                            <CardSubtitle className="vetcp">
+                              CP :{veterinaria.cp}
+                            </CardSubtitle>
+                            <CardText>
+                              <a href={veterinaria.web}>Website</a>
+                            </CardText>
+
+                            <hr />
+                            <Button className="vetcarobutton">Button</Button>
+                          </CardBody>
+                        </Card>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3>5</h3>
+              </div>
+              <div>
+                <h3>6</h3>
+              </div>
+            </Slider>
           </div>
         </div>
       </Fragment>

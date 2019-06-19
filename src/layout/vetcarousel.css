@@ -1,8 +1,8 @@
 h2.newvets {
   font-family: "Roboto Slab", serif;
   text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+
+  margin-bottom: 2rem;
   color: #586c91;
   font-weight: bold;
   background-color: #f9f9f9;
@@ -10,6 +10,8 @@ h2.newvets {
 
 div.container1 {
   background-color: #f9f9f9;
+  padding-bottom: 3em;
+  padding-top: 3em;
 }
 
 div.linecont {
@@ -35,6 +37,28 @@ div.card.vetcarousel {
   margin: 10px;
 }
 
+.slick-prev:before,
+.slick-next:before {
+  color: #4396a8;
+  font-size: 56px;
+}
+
+div.linecont {
+  padding-left: 45em;
+  padding-right: 47em;
+  margin-bottom: 2em;
+}
+
+.slick-prev {
+  margin-left: 150px;
+  z-index: 9999;
+}
+
+.slick-next {
+  margin-right: 150px;
+  z-index: 9999;
+}
+
 div.card-body.vetcarobody {
   height: 14rem;
 }
@@ -43,20 +67,20 @@ div.vetcp.card-subtitle {
   font-size: 0.8rem;
 }
 
-div.cards-slider-wrapper {
-  width: 15rem;
-  display: flex;
-  margin: 10px;
-}
-
 div.cards-slider {
   display: flex;
+  justify-content: center;
+  margin-bottom: 3em;
+}
+
+div.card-slider {
+  margin-left: 1.5em;
 }
 
 div.vetname.card-title {
   font-size: 0.9rem;
   max-height: 20px;
-  overflow: auto;
+  overflow: hidden;
   color: #586c91;
   font-weight: bold;
 }
@@ -88,26 +112,4 @@ div.carousel {
 
 div.container1 {
   text-align: -webkit-center;
-}
-
-div.btncont {
-  display: flex;
-  justify-content: space-around;
-}
-
-button.Next {
-  position: absolute;
-  left: 47rem;
-  z-index: 1;
-  top: 18rem;
-  opacity: 0.2;
-  border-radius: 50%;
-}
-
-button.Prev {
-  position: absolute;
-  z-index: 1;
-  top: 18rem;
-  opacity: 0.2;
-  border-radius: 50%;
 }
