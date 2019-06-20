@@ -22,8 +22,7 @@ class NewVetsCarousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      veterinarias: [],
-      activeIndex: { activeIndex: 0 }
+      veterinarias: []
     };
   }
 
@@ -35,37 +34,6 @@ class NewVetsCarousel extends Component {
           veterinarias: data
         });
       });
-  };
-
-  parseDate = () => {
-    if (typeof this.state.veterinarias.updatedAt === string) {
-      var dateStr = JSON.parse(this.state.veterinarias.updatedAt);
-      var sortDate = dateStr.sort(function(a, b) {
-        a = new Date(a.dateStr);
-        b = new Date(b.dateStr);
-        return a > b ? -1 : a < b ? 1 : 0;
-      });
-      console.log(sortDate);
-    }
-  };
-
-  next = () => {
-    const nextIndex =
-      this.state.activeIndex === this.state.veterinarias.length - 1
-        ? 0
-        : this.state.activeIndex + 1;
-    this.setState({
-      activeIndex: nextIndex
-    });
-    console.log(this.state.nextIndex);
-  };
-
-  previous = () => {
-    const newIndex = this.state.veterinarias.length;
-    this.setState({
-      veterinaria: [newIndex]
-    });
-    console.log([newIndex]);
   };
 
   render() {
