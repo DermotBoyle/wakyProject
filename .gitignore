@@ -26,4 +26,4 @@ yarn-error.log*
 .env
 
 # back
-/backend/config.json
+/backend/dataMigration/
