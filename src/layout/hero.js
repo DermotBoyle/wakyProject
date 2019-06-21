@@ -23,6 +23,7 @@ class Head extends React.Component {
 
   onButtonSubmit = () => {
     console.log(this.state.input);
+    window.location.href = "/veterinaria?q=" + this.state.input;
   };
 
   render() {
