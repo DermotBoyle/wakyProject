@@ -24,6 +24,7 @@ server.use("/veterinaria", express.static(path.join(__dirname, "/build")));
 //server.use("/", express.static(path.join(__dirname, "/build")));
 //server.use("/", express.static(path.join(__dirname, "/build")));
 
+
 /// ruta 1: /api                devuelve "Lista de APIs"
 
 server.get("/api", (req, res) => {

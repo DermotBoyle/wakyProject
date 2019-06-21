@@ -3,7 +3,13 @@ const schema = new mongoose.Schema(
   {
     objectId: String,
     name: String,
-    city: String
+    city: String,
+    provinceString: String,
+    phone: String,
+    internalId: String,
+    geolocation: Object,
+    lowercaseName: String,
+
   },
   { collection: "veterinary" }
 );
