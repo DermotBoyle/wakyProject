@@ -13,7 +13,7 @@ import { InputGroup, InputGroupText, InputGroupAddon, Input } from "reactstrap";
 import qs from "qs";
 import LeafletMap from "./LeafletMap";
 
-const urlRoot = window.location.href.indexOf("localhost")
+const urlRoot = window.location.href.includes("localhost")
   ? "http://localhost:3001"
   : "";
 
