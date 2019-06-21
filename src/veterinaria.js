@@ -97,7 +97,7 @@ class Veterinaria extends Component {
                     />
                     <CardBody className="selectedcardbody">
                       <CardTitle className="selectedTitle">
-                        {/* {veterinaria.name} */}TITLE
+                        {veterinaria.name}
                       </CardTitle>
                       <p className="selectedUpdated">
                         {veterinaria.updatedAt}INFO HERE

@@ -14,7 +14,7 @@ import "./vetcarousel.css";
 import { string } from "prop-types";
 
 //import urlRoot from "./urlRoot.js"
-const urlRoot = window.location.href.indexOf("localhost")
+const urlRoot = window.location.href.includes("localhost")
   ? "http://localhost:3001"
   : "";
 
