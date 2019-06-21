@@ -25,5 +25,5 @@ yarn-error.log*
 /idea
 .env
 
-# back
-/backend/dataMigration/
+# backend
+backend/dataMigration
