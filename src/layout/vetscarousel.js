@@ -27,7 +27,7 @@ class NewVetsCarousel extends Component {
   }
 
   componentDidMount = () => {
-    fetch(urlRoot + "/api/veterinary") // "/api/veterinary?cp=" + e.target.value
+    fetch(urlRoot + "/api/veterinary") // "/api/veterinary?cp=" + e.target.value // dispaly in the map
       .then(response => response.json())
       .then(data => {
         this.setState({
