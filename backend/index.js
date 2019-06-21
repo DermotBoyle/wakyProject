@@ -2,8 +2,6 @@ const express = require('express');
 const server = express();
 const path = require('path');
 const dotenv = require('dotenv').config();
-const vetsMadrid = require('./dataMigration/vetsMadrid.json').results;
-const users100 = require('./dataMigration/users100.json')
 const port = process.env.PORT || 3001;
 const Veterinary = require('./model/Veterinary');
 const users = require('./model/User')
@@ -23,8 +21,8 @@ server.use(function(req, res, next) {
 
 /// ROUTE 0: /       "Hola"
 
-server.use("/", express.static(path.join(__dirname, "/build")));
-server.use("/veterinaria", express.static(path.join(__dirname, "/build")));
+server.use("/", express.static(path.join(__dirname, "../build")));
+server.use("/veterinaria", express.static(path.join(__dirname, "../build")));
 //server.use("/", express.static(path.join(__dirname, "/build")));
 //server.use("/", express.static(path.join(__dirname, "/build")));
 
