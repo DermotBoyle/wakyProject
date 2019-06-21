@@ -9,6 +9,21 @@ const schema = new mongoose.Schema(
     internalId: String,
     geolocation: Object,
     lowercaseName: String,
+    countryCode: String,
+    provinceCode: String,
+    cp: String,
+    address: String,
+    city: String,
+    countryString: String,
+    name: String,
+    createdAt: String,
+    updatedAt: String,
+    state: Number,
+    vetServices: Object,
+    rates: Object,
+    campaigns: Object,
+    vetServiceCategories: Object,
+    employees: Object
 
   },
   { collection: "veterinary" }
