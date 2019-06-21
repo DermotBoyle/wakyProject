@@ -26,6 +26,12 @@ class Head extends React.Component {
     window.location.href = "/veterinaria?q=" + this.state.input;
   };
 
+  keyPressed = event => {
+    if (event.key === "Enter") {
+      window.location.href = "/veterinaria?q=" + this.state.input;
+    }
+  };
+
   render() {
     return (
       <div>
@@ -41,6 +47,7 @@ class Head extends React.Component {
                   className="vetsearch"
                   placeholder="Calle,Barrio o CP"
                   onChange={this.addressInput}
+                  onKeyPress={this.keyPressed}
                 />
                 <InputGroupAddon addonType="append">
                   <Button className="danger" onClick={this.onButtonSubmit}>
