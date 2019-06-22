@@ -1,3 +1,31 @@
 div.selectedCard {
-  height: 14rem;
+  display: -webkit-box;
+  height: 13rem;
+  width: 43em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-top-right-radius: 1em;
+  border-top-left-radius: 1em;
+}
+
+div.showCards {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  padding-left: 10.5em;
+  background-color: #f9f9f9;
+  width: 62em;
+}
+
+div.flex-column {
+  width: 60em;
+}
+
+img.vetimg {
+  height: 12.9em;
+  border-bottom-left-radius: 1em;
+  border-top-left-radius: 1em;
+}
+
+div.backgroudUnderMap {
+  background-color: #f9f9f9;
 }

@@ -33,6 +33,7 @@ class NewVetsCarousel extends Component {
         this.setState({
           veterinarias: data
         });
+        console.log(data);
       });
   };
 
@@ -79,19 +80,14 @@ class NewVetsCarousel extends Component {
                         />
                         <CardBody className="vetcarobody">
                           <CardTitle className="vetname">
-                            {veterinaria.name}
+                            <a href={veterinaria.web}>{veterinaria.name}</a>
                           </CardTitle>
                           <p className="vetupdate">{veterinaria.updatedAt}</p>
                           <hr />
                           <CardSubtitle className="vetcp">
                             CP :{veterinaria.cp}
                           </CardSubtitle>
-                          <CardText>
-                            <a href={veterinaria.web}>Website</a>
-                          </CardText>
-
-                          <hr />
-                          <Button className="vetcarobutton">Button</Button>
+                          <CardText>address</CardText>
                         </CardBody>
                       </Card>
                     </div>
@@ -117,19 +113,14 @@ class NewVetsCarousel extends Component {
                         />
                         <CardBody className="vetcarobody">
                           <CardTitle className="vetname">
-                            {veterinaria.name}
+                            <a href={veterinaria.web}>{veterinaria.name}</a>
                           </CardTitle>
                           <p className="vetupdate">{veterinaria.updatedAt}</p>
                           <hr />
                           <CardSubtitle className="vetcp">
                             CP :{veterinaria.cp}
                           </CardSubtitle>
-                          <CardText>
-                            <a href={veterinaria.web}>Website</a>
-                          </CardText>
-
-                          <hr />
-                          <Button className="vetcarobutton">Button</Button>
+                          <CardText />
                         </CardBody>
                       </Card>
                     </div>
@@ -155,19 +146,14 @@ class NewVetsCarousel extends Component {
                           />
                           <CardBody className="vetcarobody">
                             <CardTitle className="vetname">
-                              {veterinaria.name}
+                              <a href={veterinaria.web}>{veterinaria.name}</a>
                             </CardTitle>
                             <p className="vetupdate">{veterinaria.updatedAt}</p>
                             <hr />
                             <CardSubtitle className="vetcp">
                               CP :{veterinaria.cp}
                             </CardSubtitle>
-                            <CardText>
-                              <a href={veterinaria.web}>Website</a>
-                            </CardText>
-
-                            <hr />
-                            <Button className="vetcarobutton">Button</Button>
+                            <CardText />
                           </CardBody>
                         </Card>
                       </div>
@@ -194,19 +180,14 @@ class NewVetsCarousel extends Component {
                           />
                           <CardBody className="vetcarobody">
                             <CardTitle className="vetname">
-                              {veterinaria.name}
+                              <a href={veterinaria.web}>{veterinaria.name}</a>
                             </CardTitle>
                             <p className="vetupdate">{veterinaria.updatedAt}</p>
                             <hr />
                             <CardSubtitle className="vetcp">
                               CP :{veterinaria.cp}
                             </CardSubtitle>
-                            <CardText>
-                              <a href={veterinaria.web}>Website</a>
-                            </CardText>
-
-                            <hr />
-                            <Button className="vetcarobutton">Button</Button>
+                            <CardText>address</CardText>
                           </CardBody>
                         </Card>
                       </div>

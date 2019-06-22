@@ -12,6 +12,7 @@ import placeholder from "./images/placeholder.png";
 import { InputGroup, InputGroupText, InputGroupAddon, Input } from "reactstrap";
 import qs from "qs";
 import LeafletMap from "./LeafletMap";
+import "./veterinaria.css";
 
 const urlRoot = window.location.href.includes("localhost")
   ? "http://localhost:3001"
@@ -37,6 +38,22 @@ class Veterinaria extends Component {
         });
       });
   };
+
+  addressInput = e => {
+    this.setState({ input: e.target.value });
+  };
+
+  onButtonSubmit = () => {
+    console.log(this.state.input);
+    window.location.href = "/veterinaria?q=" + this.state.input;
+  };
+
+  keyPressed = event => {
+    if (event.key === "Enter") {
+      window.location.href = "/veterinaria?q=" + this.state.input;
+    }
+  };
+
   render() {
     const veterinarias = this.state.veterinarias || [];
     console.log(veterinarias);
@@ -56,6 +73,7 @@ class Veterinaria extends Component {
             >
               Veterinarias en{" "}
             </h3>
+            <hr />
             <p
               style={{
                 fontFamily: "Open Sans, sans-serif",
@@ -69,7 +87,10 @@ class Veterinaria extends Component {
               Introduce la direccion
             </p>
             <InputGroup style={{ margin: "10px 0px 0px 10px", width: "95%" }}>
-              <Input />
+              <Input
+                onChange={this.addressInput}
+                onKeyPress={this.keyPressed}
+              />
               <InputGroupAddon addonType="append">
                 <InputGroupText>Here little icon</InputGroupText>
               </InputGroupAddon>
@@ -79,17 +100,17 @@ class Veterinaria extends Component {
               color="success"
               size="s"
               style={{ margin: "0px 0px 20px 20px", height: "40px" }}
+              onClick={this.onButtonSubmit}
             >
               {" "}
               Buscar{" "}
             </Button>
             <div className="cardsdiv">
-              <p>my card should be here!</p>
               {veterinarias.map(veterinaria => (
                 <div className="showCards">
                   <Card className="selectedCard">
                     <CardImg
-                      className="placeholder"
+                      className="vetimg"
                       top
                       width="100%"
                       src={placeholder}
@@ -109,16 +130,13 @@ class Veterinaria extends Component {
                       <CardText>
                         <a href={veterinaria.web}>Website</a>
                       </CardText>
-
-                      <hr />
-                      <Button className="selectedcardbutton">Button</Button>
                     </CardBody>
                   </Card>
                 </div>
               ))}
             </div>
           </div>
-          <div>
+          <div className="backgroudUnderMap">
             <LeafletMap veterinarias={veterinarias} />
           </div>
         </div>
