@@ -3,9 +3,11 @@ import "./modal.css";
 import { Button } from "reactstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-library.add(fab);
+library.add(fab, faTimesCircle);
 
 const Modal = ({
   handleClose,
@@ -13,15 +15,12 @@ const Modal = ({
   children,
   handleChangePassword,
   handleChangeEmail,
-  handleLogin
+  handleLogin,
+  closeClick
 }) => {
   const showHideClassName = show
     ? "myModal display-box"
     : "myModal display-none";
-
-  handleClose = e => {
-    console.log(e.keyCode);
-  };
 
   handleChangeEmail = e => {
     console.log(e.target.value);
@@ -39,12 +38,14 @@ const Modal = ({
   return (
     <div className={showHideClassName} onKeyPress={handleClose}>
       <div className="modalcontainer">
-        <div>
-          <FontAwesomeIcon icon={["times-circle"]} />
-        </div>
+        <div />
         <div className="formwrapper">
-          <FontAwesomeIcon icon="times-circle" />
           <div className="signinContainer">
+            <div className="closeBtn">
+              <a href="#" onClick={closeClick}>
+                <FontAwesomeIcon icon="times-circle" />
+              </a>
+            </div>
             <h5>LogIn</h5>
             <Button className="FacebookBtn">
               <FontAwesomeIcon id="facebookicon" icon={["fab", "facebook-f"]} />

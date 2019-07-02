@@ -58,6 +58,10 @@ button#Registro {
   width: 6em;
 }
 
+div.closeBtn {
+  text-align: end;
+}
+
 div.formwrapper {
   padding: 2em;
   background-color: white;

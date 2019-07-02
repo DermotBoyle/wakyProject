@@ -11,12 +11,14 @@ import {
 import "./navbar.css";
 import Logo from "../images/logo.png";
 import Modal from "./modal";
+import { EventEmitter } from "events";
 
 export default class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.show = this.show.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.closeClick = this.closeClick.bind(this);
     this.state = {
       isOpen: false,
       show: false
@@ -30,13 +32,15 @@ export default class NavBar extends React.Component {
     });
   }
 
+  closeClick() {
+    console.log("close");
+    this.setState({
+      show: !this.state.show
+    });
+  }
+
   keyPressed = event => {
-    console.log("something");
-    if (event.keycode === 27) {
-      this.setState({
-        show: this.state.show
-      });
-    }
+    console.log(event.target.value);
   };
 
   toggle() {
@@ -54,6 +58,7 @@ export default class NavBar extends React.Component {
           light
           expand="md"
           style={{ boxShadow: "0 4px 4px -2px rgba(0,0,0,.2)" }}
+          onKeyPress={this.KeyPressed}
         >
           <img src={Logo} width="13%" />
           <NavbarToggler onClick={this.toggle} />
@@ -81,7 +86,11 @@ export default class NavBar extends React.Component {
               >
                 Iniciar Sesion
               </Button>
-              <Modal show={this.state.show} handleClose={this.KeyPressed} />
+              <Modal
+                show={this.state.show}
+                onKeyPress={this.KeyPressed}
+                closeClick={this.closeClick}
+              />
 
               {/* login */}
             </Nav>
