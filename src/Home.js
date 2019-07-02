@@ -9,6 +9,7 @@ class Home extends Component {
     return (
       <div>
         <Head />
+        <h2 className="newvets">Nuevas veterinarias</h2>
         <NewVetsCarousel />
         <Blog />
       </div>

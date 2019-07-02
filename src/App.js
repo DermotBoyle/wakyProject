@@ -6,7 +6,7 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Home from "./Home.js";
 import Veterinaria from "./veterinaria";
 import Contacto from "./Contacto";
-
+import Modal from "./layout/modal";
 function App() {
   return (
     <div>

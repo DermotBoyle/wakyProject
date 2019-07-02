@@ -29,7 +29,7 @@ div.input-group {
   display: inline-flex;
   border-radius: 2rem;
   width: 37rem;
-  border: 10px solid rgb(255, 255, 255, 0.5);
+  border: 10px solid hsla(0, 0%, 100%, 0.5);
   border-bottom-left-radius: 2rem;
   border-top-left-radius: 2rem;
 }
