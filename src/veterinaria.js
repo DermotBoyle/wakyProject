@@ -14,10 +14,6 @@ import qs from "qs";
 import LeafletMap from "./LeafletMap";
 import "./veterinaria.css";
 
-const urlRoot = window.location.href.includes("localhost")
-  ? "http://localhost:3001"
-  : "";
-
 class Veterinaria extends Component {
   constructor() {
     super();
@@ -30,7 +26,7 @@ class Veterinaria extends Component {
     const query = qs.parse(window.location.search);
     const postcode = query["?q"] || "28025";
     console.log(window.location.search, query);
-    fetch(urlRoot + "/api/veterinary?cp=" + postcode) // "/api/veterinary?cp=" + e.target.value // dispaly in the map
+    fetch("/api/veterinary?cp=" + postcode) // "/api/veterinary?cp=" + e.target.value // dispaly in the map
       .then(response => response.json())
       .then(data => {
         this.setState({

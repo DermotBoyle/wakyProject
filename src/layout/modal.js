@@ -45,7 +45,7 @@ class Modal extends React.Component {
     this.setState({ password: e.target.value });
   };
 
-  handleLogin = function() {
+  handleLogin = () => {
     console.log("handling login....", this.state);
     fetch("/api/login", {
       method: "POST",

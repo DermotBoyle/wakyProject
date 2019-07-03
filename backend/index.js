@@ -2,9 +2,17 @@ const express = require('express');
 const server = express();
 const path = require('path');
 const dotenv = require('dotenv').config();
+const bodyParser = require('body-parser');
 const port = process.env.PORT || 3001;
 const Veterinary = require('./model/Veterinary');
-const users = require('./model/User')
+const User = require('./model/User');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy
+const jwt = require('jsonwebtoken');
+const JwtStrategy = require('passport-jwt').Strategy;
+const salt = '=DPr4D2gHVP^39s#vkU=';
+const sha1 = require('sha1');
+const cookieParser = require('cookie-parser');
 
 
 server.set("port", port);
@@ -17,6 +25,16 @@ server.use(function(req, res, next) {
   );
   next();
 });
+server.use(passport.initialize());
+server.use(bodyParser.json());
+server.use(cookieParser('secret'));
+passport.use(new JwtStrategy({
+  jwtFromRequest: (req) => req.cookies && req.cookies.jwt, 
+  secretOrKey: 'secret'
+}, (payload, done)=> {
+  console.log('received cookie info', payload)
+  return done(null, payload.user)
+}))
 
 
 /// ROUTE 0: /       "Hola"
@@ -47,7 +65,6 @@ server.get("/api/veterinary", (req, res) => {
   });
 });
 
-
 /// ROUTE 3: /api/veterinary/:objectId return "1 vet object"
 
 server.get("/api/veterinary/:objectId", (req, res) => { 
@@ -57,9 +74,55 @@ server.get("/api/veterinary/:objectId", (req, res) => {
   });
 });
 
-/// ROUTE 4: /api/user
+/// ROUTE : /api/user
 
 
+
+// SIGN IN 
+server.post('/api/login', (req, res, next)=> {
+  console.log("login starting", req.body);
+
+  passport.authenticate('local', {session:false}, (err, user, info) => {
+    console.log('Finish authentication, generating jwt');
+
+    jwt.sign({user}, 'secret', (err, token) => {
+      console.log('jwt generated', err, token)
+      
+      if (err) return res.json(err);
+      res.cookie('jwt', token, {
+        httpOnly: true,
+        secure: true,
+      })
+      res.json({jwt:token})
+    })
+
+    // res.send('ok!')
+  })(req,res,next);
+
+})
+
+passport.use(new LocalStrategy({
+    usernameField: 'email'
+  },
+  function (username, password, done) {
+    console.log('LOGGING IN...', {
+      username,
+      password
+    })
+    const userHash = sha1(password + salt);
+    console.log("Preguntando a mongodb");
+    User.find({username, userHash},(err, result) => {
+        console.log("Terminado con mongodb");
+        if (err) console.log(err);
+        const user = result[0];
+        // for (let key in user)
+        //   if (!["objectId", "username", "userHash"].includes(key))
+        //     delete user[key];
+          done(err, user.objectId);
+    });
+  }
+));
+ 
 
 
 server.listen(port, function() {
