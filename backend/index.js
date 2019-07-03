@@ -28,13 +28,35 @@ server.use(function(req, res, next) {
 server.use(passport.initialize());
 server.use(bodyParser.json());
 server.use(cookieParser('secret'));
+
 passport.use(new JwtStrategy({
   jwtFromRequest: (req) => req.cookies && req.cookies.jwt, 
   secretOrKey: 'secret'
-}, (payload, done)=> {
+  }, 
+  (payload, done)=> {
   console.log('received cookie info', payload)
   return done(null, payload.user)
 }))
+
+passport.use(new LocalStrategy({usernameField: 'email'},
+  function (username, password, done) {
+    console.log('LOGGING IN...', {username, password
+    })
+
+    const userHash = sha1(password + salt);
+    console.log("Preguntando a mongodb");
+
+    User.find({
+      username,
+      userHash
+    }, (err, result) => {
+      console.log("Terminado con mongodb");
+      if (err) console.log(err);
+      const user = result[0];
+      done(err, user && user.objectId);
+    });
+  }
+));
 
 
 /// ROUTE 0: /       "Hola"
@@ -93,14 +115,13 @@ server.post('/api/signup', (req, res) => {
 })
 
 
-
 // SIGN IN 
 server.post('/api/login', (req, res, next)=> {
   console.log("login starting", req.body);
 
   passport.authenticate('local', {session:false}, (err, user, info) => {
     console.log('Finish authentication, generating jwt');
-
+    if (!user) return res.sendStatus(401);
     jwt.sign({user}, 'secret', (err, token) => {
       console.log('jwt generated', err, token)
       
@@ -114,31 +135,14 @@ server.post('/api/login', (req, res, next)=> {
 
     // res.send('ok!')
   })(req,res,next);
-
 })
 
-passport.use(new LocalStrategy({
-    usernameField: 'email'
-  },
-  function (username, password, done) {
-    console.log('LOGGING IN...', {
-      username,
-      password
-    })
-    const userHash = sha1(password + salt);
-    console.log("Preguntando a mongodb");
-    User.find({username, userHash},(err, result) => {
-        console.log("Terminado con mongodb");
-        if (err) console.log(err);
-        const user = result[0];
-        // for (let key in user)
-        //   if (!["objectId", "username", "userHash"].includes(key))
-        //     delete user[key];
-          done(err, user.objectId);
-    });
-  }
-));
  
+// SIGN OUT
+
+server.post('/api/logout', (req, res, next)=> {
+  res.clearCookie('jwt').send();
+})
 
 
 server.listen(port, function() {
