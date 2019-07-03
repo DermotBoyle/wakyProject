@@ -16,9 +16,24 @@ class Modal extends React.Component {
     this.state = {
       email: "dermot@hotmail.com",
       password: "123456",
-      message: ""
+      confirmPassword: "",
+      message: "",
+      displayRegister: false
     };
   }
+
+  confirmPassword = () => {
+    this.setState({
+      confirmPassword: this.state.confirmPassword
+    });
+  };
+
+  handleRegister = () => {
+    console.log("changing");
+    this.setState({
+      displayRegister: !this.state.displayRegister
+    });
+  };
 
   handleChangeEmail = e => {
     console.log(e.target.value);
@@ -44,15 +59,7 @@ class Modal extends React.Component {
   };
 
   render() {
-    const {
-      handleClose,
-      show,
-      handleChangePassword,
-      handleChangeEmail,
-      handleLogin,
-      closeClick,
-      handleRegister
-    } = this.props;
+    const { handleClose, show, closeClick } = this.props;
 
     const showHideClassName = show
       ? "myModal display-box"
@@ -62,58 +69,132 @@ class Modal extends React.Component {
       <div className={showHideClassName} onKeyPress={handleClose}>
         <div className="modalcontainer">
           <div />
-          <div className="formwrapper">
-            <div className="signinContainer">
-              <div className="closeBtn">
-                <a href="#" onClick={closeClick}>
-                  <FontAwesomeIcon icon="times-circle" />
-                </a>
-              </div>
-              <h5>LogIn</h5>
-              <Button className="FacebookBtn">
-                <FontAwesomeIcon
-                  id="facebookicon"
-                  icon={["fab", "facebook-f"]}
-                />
-                Entrar con Facebook
-              </Button>
-              <hr />
-              <p id="obreak">o</p>
-              <div className="borderbottom">
-                <Button id="logIn">LogIn</Button>
-                <Button id="Registro" onClick={handleRegister}>
-                  Registro
-                </Button>
-              </div>
-              <form>
-                <div className="inputfield">
-                  <label className="labelInput" htmlFor="email">
-                    Email
-                  </label>
-                  <br />
-                  <input
-                    value={this.state.email}
-                    id="email"
-                    type="email"
-                    onChange={this.handleChangeEmail}
-                  />
+          {this.state.displayRegister ? (
+            <div className="formwrapper">
+              <div className="signinContainer">
+                <div className="closeBtn">
+                  <a href="#" onClick={closeClick}>
+                    <FontAwesomeIcon icon="times-circle" />
+                  </a>
                 </div>
-                <div className="inputfield">
-                  <label htmlFor="password">Password</label>
-                  <br />
-                  <input
-                    value={this.state.password}
-                    id="password"
-                    type="password"
-                    onChange={this.handleChangePassword}
+                <h5>LogIn</h5>
+                <Button style={{ display: "none" }} className="FacebookBtn">
+                  <FontAwesomeIcon
+                    id="facebookicon"
+                    icon={["fab", "facebook-f"]}
                   />
-                </div>
-                <Button id="Entrar" onClick={this.handleLogin}>
-                  Entrar
+                  Entrar con Facebook
                 </Button>
-              </form>
+                <hr />
+                <div className="borderbottom">
+                  <Button
+                    id="logIn"
+                    onClick={this.handleRegister}
+                    style={{ backgroundColor: "#c0c0c0" }}
+                  >
+                    LogIn
+                  </Button>
+                  <Button
+                    id="Registro"
+                    onClick={this.handleRegister}
+                    style={{ backgroundColor: "#4496ae" }}
+                  >
+                    Registro
+                  </Button>
+                </div>
+                <form>
+                  <div className="inputfield">
+                    <label className="labelInput" htmlFor="email">
+                      Email
+                    </label>
+                    <br />
+                    <input
+                      value={this.state.email}
+                      id="email"
+                      type="email"
+                      onChange={this.handleChangeEmail}
+                    />
+                  </div>
+                  <div className="inputfield">
+                    <label htmlFor="password">Password</label>
+                    <br />
+                    <input
+                      value={this.state.password}
+                      id="password"
+                      type="password"
+                      onChange={this.handleChangePassword}
+                    />
+                  </div>
+                  <div className="inputfield">
+                    <label htmlFor="password">Confirm Password</label>
+                    <br />
+                    <input
+                      value={this.state.confirmPassword}
+                      id="password"
+                      type="password"
+                      onChange={this.confirmPassword}
+                    />
+                  </div>
+                  <Button id="Entrar" onClick={this.handleLogin}>
+                    Entrar
+                  </Button>
+                </form>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="formwrapper">
+              <div className="signinContainer">
+                <div className="closeBtn">
+                  <a href="#" onClick={closeClick}>
+                    <FontAwesomeIcon icon="times-circle" />
+                  </a>
+                </div>
+                <h5>LogIn</h5>
+                <Button className="FacebookBtn">
+                  <FontAwesomeIcon
+                    id="facebookicon"
+                    icon={["fab", "facebook-f"]}
+                  />
+                  Entrar con Facebook
+                </Button>
+                <hr />
+                <div className="borderbottom">
+                  <Button id="logIn">LogIn</Button>
+                  <Button id="Registro" onClick={this.handleRegister}>
+                    Registro
+                  </Button>
+                </div>
+                <form>
+                  <div className="inputfield">
+                    <label className="labelInput" htmlFor="email">
+                      Email
+                    </label>
+                    <br />
+                    <input
+                      value={this.state.email}
+                      id="email"
+                      type="email"
+                      onChange={this.handleChangeEmail}
+                    />
+                  </div>
+                  <div className="inputfield">
+                    <label htmlFor="password">Password</label>
+                    <br />
+                    <input
+                      value={this.state.password}
+                      id="password"
+                      type="password"
+                      onChange={this.handleChangePassword}
+                    />
+                  </div>
+
+                  <Button id="Entrar" onClick={this.handleLogin}>
+                    Entrar
+                  </Button>
+                </form>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
