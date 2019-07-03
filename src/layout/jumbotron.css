@@ -3,8 +3,8 @@
 .jumbotron {
   position: relative;
   background-image: url("../images/overlay.jpg");
-  background-position: 0px -140px;
-  background-size: 100%;
+  background-position: center;
+  background-size: cover;
   height: 32rem;
   background-repeat: no-repeat;
   margin-bottom: 0em;

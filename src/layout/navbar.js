@@ -19,9 +19,11 @@ export default class NavBar extends React.Component {
     this.show = this.show.bind(this);
     this.toggle = this.toggle.bind(this);
     this.closeClick = this.closeClick.bind(this);
+    this.handleRegister = this.handleRegister.bind(this);
     this.state = {
       isOpen: false,
-      show: false
+      show: false,
+      displayregister: false
     };
   }
 
@@ -36,6 +38,12 @@ export default class NavBar extends React.Component {
     console.log("close");
     this.setState({
       show: !this.state.show
+    });
+  }
+
+  handleRegister() {
+    this.setState({
+      displayregister: !this.state.displayregister
     });
   }
 
@@ -90,6 +98,8 @@ export default class NavBar extends React.Component {
                 show={this.state.show}
                 onKeyPress={this.KeyPressed}
                 closeClick={this.closeClick}
+                displayregister={this.state.displayregister}
+                handleRegister={this.handleRegister}
               />
 
               {/* login */}

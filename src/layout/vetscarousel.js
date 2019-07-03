@@ -12,6 +12,10 @@ import {
 import placeholder from "../images/placeholder.png";
 import "./vetcarousel.css";
 import Veterinaria from "../veterinaria";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faMapMarker } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+library.add(faMapMarker);
 
 //import urlRoot from "./urlRoot.js"
 const urlRoot = window.location.href.includes("localhost")
@@ -76,12 +80,13 @@ class NewVetsCarousel extends Component {
                   />
                   <CardBody className="vetcarobody">
                     <CardTitle className="vetname">
-                      <a>{Veterinaria.name}</a>
+                      <p>{veterinaria.name}</p>
                     </CardTitle>
-                    <p className="vetupdate">date here</p>
+                    <p className="vetupdate">{veterinaria.updatedAt}</p>
 
                     <CardSubtitle className="vetcp">
-                      {veterinaria.cp}
+                      <FontAwesomeIcon id="mapmark" icon="map-marker" />{" "}
+                      {veterinaria.address}
                     </CardSubtitle>
                     <CardText />
                   </CardBody>

@@ -8,6 +8,8 @@ h2.newvets {
   color: #586c91;
   font-weight: bold;
   background-color: #f9f9f9;
+  margin: 0;
+  padding-bottom: 2em;
 }
 .slick-next:before {
   color: #586c91;
@@ -31,7 +33,9 @@ h2.newvets {
   background: #4496ae;
 }
 img.placeholder {
-  width: 15em;
+  width: 20em;
+  height: 12em;
+  border-radius: 15px 15px 0px 0px;
 }
 
 div.sliderWrapper {
@@ -41,6 +45,29 @@ div.sliderWrapper {
 }
 
 div.vetscarousel.card {
-  width: 15em !important;
+  width: 20em !important;
   margin-left: 1em;
+  border-radius: 15px;
+}
+
+.vetname {
+  text-align: initial;
+  color: #4496ae;
+  font-weight: bold;
+}
+
+.containerCarousel {
+  background-color: #f9f9f9;
+}
+
+div.vetcp {
+  text-align: initial;
+}
+
+#mapmark {
+  color: #4496ae;
+}
+
+p.vetupdate {
+  text-align: initial;
 }
