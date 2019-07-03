@@ -50,8 +50,10 @@ server.use("/veterinaria", express.static(path.join(__dirname, "../build")));
 server.get("/api", (req, res) => {
   res.write("/api/veterinary                List of veterinaries\n");
   res.write("/api/veterinary/:objectId      Detail for veterinary\n");
-  res.write('/api/user                      List of users');
-  res.write('/api/user/:objectId            Detail for one user');
+  res.write('/api/user                      List of users\n');
+  res.write('/api/user/:objectId            Detail for one user\n');
+  res.write('/api/signup                    Sign up of a user\n')
+  res.write('')
   res.end();
 });
 
@@ -75,6 +77,20 @@ server.get("/api/veterinary/:objectId", (req, res) => {
 });
 
 /// ROUTE : /api/user
+server.get("/api/user/me", passport.authenticate('jwt', {session: false}), (req, res) => {
+  console.log('jwt extracted', req.user)  
+  User.find({objectId: req.user}, (err, result) => {
+      if (err) console.log(err);
+      res.json(result[0]);
+    });
+});
+
+//  ROUTE 4: /api/signup
+
+server.post('/api/signup', (req, res) => {
+  // User.insertOne(req.body);
+  res.send('User created' + JSON.stringify(req.body))
+})
 
 
 
