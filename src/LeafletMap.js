@@ -40,7 +40,7 @@ class LeafletMap extends Component {
             <Popup>
               <a
                 onClick={() =>
-                  (window.location.href = `/details?intnernalId=${
+                  (window.location.href = `/details?q=${
                     veterinaria.internalId
                   }`)
                 }
