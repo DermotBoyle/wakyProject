@@ -15,7 +15,7 @@ class Vetdetails extends React.Component {
   }
   componentDidMount = () => {
     const query = qs.parse(window.location.search);
-    const vetId = query["?q"] || "X8hmjkxNZn";
+    const vetId = query["?q"] || "vMqq9vxjvZ";
     console.log(window.location.search, query);
     fetch(urlRoot + "/api/veterinary?internalId=" + vetId) // "/api/veterinary?cp=" + e.target.value // dispaly in the map
       .then(response => response.json())
