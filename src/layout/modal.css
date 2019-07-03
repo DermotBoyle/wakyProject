@@ -53,6 +53,11 @@ button#Entrar {
   width: 6em;
 }
 
+button#Registro:active {
+  background-color: #4496ae;
+  width: 6em;
+}
+
 button#Registro {
   background-color: #c0c0c0;
   width: 6em;

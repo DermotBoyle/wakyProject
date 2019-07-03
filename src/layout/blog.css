@@ -7,11 +7,32 @@ h3.blogHeader {
   font-weight: bold;
 }
 
+div.blogcontainer {
+  text-align: -webkit-center;
+}
+
 div.btnrow {
   display: flex;
   justify-content: center;
   margin-top: 2em;
   margin-bottom: 2em;
+}
+
+div.blogCard {
+  width: 20em !important;
+  border-radius: 15px;
+  margin-left: 1em;
+}
+
+#blogWrapper {
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+}
+
+div.blogwrap {
+  display: flex;
+  justify-content: center;
 }
 
 button.gotoBlog {
@@ -22,4 +43,14 @@ button.gotoBlog {
   border-bottom-left-radius: 1em;
   border-top-left-radius: 1em;
   width: 9em;
+}
+
+@media screen and (max-width: 1000px) {
+  div.blogwrap {
+    display: block;
+  }
+
+  div.blogCard {
+    margin-bottom: 1em;
+  }
 }

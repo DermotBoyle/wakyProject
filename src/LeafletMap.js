@@ -37,7 +37,18 @@ class LeafletMap extends Component {
             ]}
             key={index}
           >
-            <Popup>{veterinaria.name}</Popup>
+            <Popup>
+              <a
+                onClick={() =>
+                  (window.location.href = `/details?intnernalId=${
+                    veterinaria.internalId
+                  }`)
+                }
+                href="#"
+              >
+                {veterinaria.name}
+              </a>
+            </Popup>
           </Marker>
         ))}
       </Map>

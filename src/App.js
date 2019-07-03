@@ -6,6 +6,7 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Home from "./Home.js";
 import Veterinaria from "./veterinaria";
 import Contacto from "./Contacto";
+import Vetdetails from "./vetdetails";
 import Modal from "./layout/modal";
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/veterinaria" component={Veterinaria} />
             <Route exact path="/contacto" component={Contacto} />
+            <Route exact path="/details" component={Vetdetails} />
           </Switch>
           <Footer />
         </div>
