@@ -1,0 +1,227 @@
+div.head {
+  padding-left: 100px;
+  padding-top: 50px;
+}
+
+h1.vetdetailheader {
+  color: #4496ae;
+  font-size: 30px;
+  font-family: "Roboto Slab", serif;
+}
+
+p.vetdetailaddress {
+  font-size: 18px;
+  font-family: "Roboto Slab", serif;
+  color: #5e5e5e;
+}
+
+h4.vetdetaildescription {
+  font-size: 18px;
+  color: #4496ae;
+  padding-top: 2em;
+  padding-left: 100px;
+}
+
+div.vetdetailMapWrapper {
+  display: flex;
+  padding-left: 100px;
+}
+
+div.leaflet-container {
+  height: 400px;
+  width: 68em;
+}
+
+p.vetdetaildescription {
+  padding-left: 100px;
+}
+
+div.col.points {
+  max-width: 25%;
+  color: #5e5e5e;
+}
+
+div.pointRow {
+  max-width: max-content;
+  padding-left: 6px;
+}
+
+div.col.pointsDetails {
+  padding: 0;
+  text-align: center;
+  width: 16em;
+}
+
+div.infodetail {
+  width: max-content;
+  margin-left: 5em;
+}
+
+div.pointTitle {
+  color: #4496ae;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+div.opinions {
+  font-weight: 600;
+  color: #5e5e5e;
+}
+
+div.ratings {
+  width: 27em;
+  -webkit-box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
+  height: 4em;
+  padding-top: 8px;
+  padding-left: 6px;
+}
+
+h2.contactoTitle {
+  color: #4496ae;
+  font-size: 18px;
+  padding-top: 1em;
+}
+
+div.rowContacto {
+  margin-top: 1em;
+  padding-top: 0 !important;
+}
+
+p.tlfNames {
+  width: max-content;
+  color: #5e5e5e;
+}
+
+p.tlfDetails {
+  width: max-content;
+  color: #5e5e5e;
+}
+
+div.contactoContainer.row {
+  padding-left: 1em;
+  padding-top: 0 !important;
+  width: 27em;
+}
+
+div.contactoWrapper {
+  -webkit-box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
+  margin-top: 2em;
+  padding-top: 0 !important;
+  width: 27em;
+}
+
+button.pideCita {
+  margin-top: 1em;
+  background-color: #4496ae;
+  width: 27em;
+  font-weight: 600;
+}
+
+div.pointContainer {
+  padding-left: 0 !important;
+}
+
+div.descriptionContainer {
+  width: 53em;
+}
+
+h4.admitidasDescription {
+  color: #4496ae;
+  font-size: 18px;
+  padding-top: 1em;
+  padding-left: 100px;
+  font-weight: 700;
+}
+
+div.animalCol {
+  padding-left: 0;
+}
+
+div.admitidasRow {
+  padding-left: 100px;
+}
+
+h4.especialidadesDescription {
+  color: #4496ae;
+  margin-left: 100px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+p.sugerircambios {
+  text-align: end;
+  font-size: 13px;
+  margin-top: 1em;
+  color: #4496ae;
+  font-weight: 500;
+}
+
+div.admitidasContainer {
+  width: 53em;
+}
+
+div.especialidadesContainer {
+  width: 53em;
+}
+
+div.especialidadesCol {
+  padding-left: 0;
+}
+
+div.especialidadesRow {
+  padding-left: 100px;
+  color: #5e5e5e;
+}
+
+div.ratingsLower {
+  width: 27em;
+  height: 4em;
+  padding-top: 8px;
+  padding-left: 6px;
+}
+
+h3.opinionesTitle {
+  color: #4496ae;
+  font-size: 18px;
+  font-weight: 700;
+  padding-left: 20px;
+}
+
+div.reviewContainer {
+  padding-left: 100px;
+}
+
+div.reviewUser {
+  display: flex;
+}
+
+div.horarioContainer {
+  margin-top: 2em;
+  -webkit-box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
+  width: 27em;
+  padding: 1em;
+}
+
+h4.horarioTitle {
+  color: #4496ae;
+  font-size: 18px;
+}
+
+div.horariodetails {
+  color: #5e5e5e;
+}
+
+div.reviewContainer {
+  width: 35em;
+  margin-bottom: 1em;
+  border-bottom: solid;
+  margin-left: 83px;
+  padding-left: 0 !important;
+  margin-top: 1em;
+}
