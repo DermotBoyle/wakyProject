@@ -1,29 +1,36 @@
 const express = require('express');
 const server = express();
-const path = require('path');
-const dotenv = require('dotenv').config();
-const bodyParser = require('body-parser');
-const port = process.env.PORT || 3001;
 const Veterinary = require('./model/Veterinary');
 const User = require('./model/User');
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy
-const jwt = require('jsonwebtoken');
-const JwtStrategy = require('passport-jwt').Strategy;
-const salt = '=DPr4D2gHVP^39s#vkU=';
+const path = require('path');
+const bodyParser = require('body-parser');
 const sha1 = require('sha1');
 const cookieParser = require('cookie-parser');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv').config();
+const LocalStrategy = require('passport-local').Strategy;
+const JwtStrategy = require('passport-jwt').Strategy;
 
+const port = process.env.PORT || 3001;
+const salt = '=DPr4D2gHVP^39s#vkU=';
+
+
+//---------------------------------------- SETTINGS -----------------------------------------
 
 server.set("port", port);
+
+server.use("/", express.static(path.join(__dirname, "../build")));
+server.use("/veterinaria", express.static(path.join(__dirname, "../build")));
+//server.use("/", express.static(path.join(__dirname, "/build")));
+//server.use("/", express.static(path.join(__dirname, "/build")));
 
 server.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
+  ); next();
 });
 server.use(passport.initialize());
 server.use(bodyParser.json());
@@ -58,13 +65,7 @@ passport.use(new LocalStrategy({usernameField: 'email'},
   }
 ));
 
-
-/// ROUTE 0: /       "Hola"
-
-server.use("/", express.static(path.join(__dirname, "../build")));
-server.use("/veterinaria", express.static(path.join(__dirname, "../build")));
-//server.use("/", express.static(path.join(__dirname, "/build")));
-//server.use("/", express.static(path.join(__dirname, "/build")));
+// -----------------------------------------  API  ---------------------------------------------------
 
 
 /// ROUTE 1: /api                devuelve "Lista de APIs"
@@ -72,15 +73,16 @@ server.use("/veterinaria", express.static(path.join(__dirname, "../build")));
 server.get("/api", (req, res) => {
   res.write("/api/veterinary                List of veterinaries\n");
   res.write("/api/veterinary/:objectId      Detail for veterinary\n");
-  res.write('/api/user                      List of users\n');
-  res.write('/api/user/:objectId            Detail for one user\n');
-  res.write('/api/signup                    Sign up of a user\n')
+  res.write('/api/user/me                   The information from user\n');
+  res.write('/api/registration              Introduce info for first time from user\n');
+  res.write('/api/login                     User sign in\n')
+  res.write('api/logout                     User sign out\n')
   res.write('')
   res.end();
 });
 
 
-/// ROUTE 2: /api/veterinary     devuelve "Array de 100 veterinarias (JSON)"
+/// ROUTE 01: /api/veterinary                     devuelve "Array de veterinarias (JSON)"
 
 server.get("/api/veterinary", (req, res) => {
   Veterinary.find(req.query, (err, result) => {
@@ -89,7 +91,8 @@ server.get("/api/veterinary", (req, res) => {
   });
 });
 
-/// ROUTE 3: /api/veterinary/:objectId return "1 vet object"
+
+/// ROUTE 02: /api/veterinary/:objectId           return "1 vet object"
 
 server.get("/api/veterinary/:objectId", (req, res) => { 
   Veterinary.find({ objectId: req.params.objectId }, (err, result) => {
@@ -98,51 +101,58 @@ server.get("/api/veterinary/:objectId", (req, res) => {
   });
 });
 
-/// ROUTE : /api/user
-server.get("/api/user/me", passport.authenticate('jwt', {session: false}), (req, res) => {
+
+//  ROUTE 03: /api/registration                    SIGN UP
+
+server.post('/api/registration', (req, res) => {
+  // User.insertOne(req.body);
+  res.send('User created' + JSON.stringify(req.body))
+})
+
+
+/// ROUTE 04: /api/user/me                           return our user    
+
+server.get('/api/user/me', passport.authenticate('jwt', {session: false}), (req, res) => {
   console.log('jwt extracted', req.user)  
+  
   User.find({objectId: req.user}, (err, result) => {
       if (err) console.log(err);
       res.json(result[0]);
     });
 });
 
-//  ROUTE 4: /api/signup
 
-server.post('/api/signup', (req, res) => {
-  // User.insertOne(req.body);
-  res.send('User created' + JSON.stringify(req.body))
-})
+// ROUTE 05:  /api/login                          SIGN IN 
 
-
-// SIGN IN 
 server.post('/api/login', (req, res, next)=> {
   console.log("login starting", req.body);
 
   passport.authenticate('local', {session:false}, (err, user, info) => {
     console.log('Finish authentication, generating jwt');
-    if (!user) return res.sendStatus(401);
+    if (err || !user) return res.sendStatus(401);
+    
     jwt.sign({user}, 'secret', (err, token) => {
       console.log('jwt generated', err, token)
       
-      if (err) return res.json(err);
+      if (err) return res.status(500).json(err);
       res.cookie('jwt', token, {
         httpOnly: true,
         secure: true,
       })
       res.json({jwt:token})
     })
-
     // res.send('ok!')
   })(req,res,next);
 })
 
  
-// SIGN OUT
+// ROUTE 06: /api/logout                         SIGN OUT
 
 server.post('/api/logout', (req, res, next)=> {
   res.clearCookie('jwt').send();
 })
+
+
 
 
 server.listen(port, function() {
