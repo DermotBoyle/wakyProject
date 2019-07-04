@@ -14,6 +14,7 @@ const JwtStrategy = require('passport-jwt').Strategy;
 
 const port = process.env.PORT || 3001;
 const salt = '=DPr4D2gHVP^39s#vkU=';
+const secret = 'As#zB+U=22&FIaIm'
 
 
 //---------------------------------------- SETTINGS -----------------------------------------
@@ -34,11 +35,11 @@ server.use(function(req, res, next) {
 });
 server.use(passport.initialize());
 server.use(bodyParser.json());
-server.use(cookieParser('secret'));
+server.use(cookieParser(secret));
 
 passport.use(new JwtStrategy({
   jwtFromRequest: (req) => req.cookies && req.cookies.jwt, 
-  secretOrKey: 'secret'
+  secretOrKey: secret
   }, 
   (payload, done)=> {
   console.log('received cookie info', payload)
@@ -47,7 +48,7 @@ passport.use(new JwtStrategy({
 
 passport.use(new LocalStrategy({usernameField: 'email'},
   function (username, password, done) {
-    console.log('LOGGING IN...', {username, password
+    console.log('Logging in...', {username, password
     })
 
     const userHash = sha1(password + salt);
@@ -65,10 +66,11 @@ passport.use(new LocalStrategy({usernameField: 'email'},
   }
 ));
 
+
 // -----------------------------------------  API  ---------------------------------------------------
 
 
-/// ROUTE 1: /api                devuelve "Lista de APIs"
+/// ROUTE 00: /api                devuelve "Lista de APIs"
 
 server.get("/api", (req, res) => {
   res.write("/api/veterinary                List of veterinaries\n");
@@ -118,7 +120,7 @@ server.get('/api/user/me', passport.authenticate('jwt', {session: false}), (req,
   User.find({objectId: req.user}, (err, result) => {
       if (err) console.log(err);
       res.json(result[0]);
-    });
+  });
 });
 
 
@@ -131,7 +133,7 @@ server.post('/api/login', (req, res, next)=> {
     console.log('Finish authentication, generating jwt');
     if (err || !user) return res.sendStatus(401);
     
-    jwt.sign({user}, 'secret', (err, token) => {
+    jwt.sign({user}, secret, (err, token) => {
       console.log('jwt generated', err, token)
       
       if (err) return res.status(500).json(err);
