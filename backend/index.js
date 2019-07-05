@@ -139,8 +139,7 @@ server.post('/api/login', (req, res, next)=> {
       if (err) return res.status(500).json(err);
       res.cookie('jwt', token, {
         httpOnly: true,
-        secure: true,
-      })
+      }).send()
       res.json({jwt:token})
     })
     // res.send('ok!')
