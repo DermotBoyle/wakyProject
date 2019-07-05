@@ -4,9 +4,7 @@ import { Button } from "reactstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { thisExpression } from "@babel/types";
 
 library.add(fab, faTimesCircle);
 
@@ -77,7 +75,7 @@ class Modal extends React.Component {
                     <FontAwesomeIcon icon="times-circle" />
                   </a>
                 </div>
-                <h5>LogIn</h5>
+                <h5>SignUp</h5>
                 <Button style={{ display: "none" }} className="FacebookBtn">
                   <FontAwesomeIcon
                     id="facebookicon"

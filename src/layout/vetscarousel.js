@@ -11,16 +11,11 @@ import {
 } from "reactstrap";
 import placeholder from "../images/placeholder.png";
 import "./vetcarousel.css";
-import Veterinaria from "../veterinaria";
+import Moment from "react-moment";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMapMarker } from "@fortawesome/free-solid-svg-icons";
+import { faMapMarker, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-library.add(faMapMarker);
-
-//import urlRoot from "./urlRoot.js"
-const urlRoot = window.location.href.includes("localhost")
-  ? "http://localhost:3001"
-  : "";
+library.add(faMapMarker, faStar);
 
 class NewVetsCarousel extends Component {
   constructor(props) {
@@ -31,7 +26,7 @@ class NewVetsCarousel extends Component {
   }
 
   componentDidMount = () => {
-    fetch(urlRoot + "/api/veterinary") // "/api/veterinary?cp=" + e.target.value // dispaly in the map
+    fetch("/api/veterinary") // "/api/veterinary?cp=" + e.target.value // dispaly in the map
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -57,68 +52,223 @@ class NewVetsCarousel extends Component {
     };
 
     return (
-      <div
-        className="containerCarousel"
-        style={{
-          display: "block",
-          minHeight: "0",
-          minWidth: "0",
-          textAlign: "-webkit-center"
-        }}
-      >
-        {" "}
-        <span>
-          <Slider {...settings}>
-            <div className="sliderWrapper">
-              {veterinariasSortedByDate.slice(0, 3).map(veterinaria => (
-                <Card className="vetscarousel" style={{ width: "20em" }}>
-                  <CardImg
-                    className="placeholder"
-                    top
-                    src={placeholder}
-                    alt="Card image cap"
-                  />
-                  <CardBody className="vetcarobody">
-                    <CardTitle className="vetname">
-                      <p>{veterinaria.name}</p>
-                    </CardTitle>
-                    <p className="vetupdate">{veterinaria.updatedAt}</p>
+      // carousel 1
 
-                    <CardSubtitle className="vetcp">
-                      <FontAwesomeIcon id="mapmark" icon="map-marker" />{" "}
-                      {veterinaria.address}
-                    </CardSubtitle>
-                    <CardText />
-                  </CardBody>
-                </Card>
-              ))}
-            </div>
-            <div className="sliderWrapper">
-              {veterinariasSortedByDate.slice(0, 3).map(veterinaria => (
-                <Card className="vetscarousel" style={{ width: "20em" }}>
-                  <CardImg
-                    className="placeholder"
-                    top
-                    src={placeholder}
-                    alt="Card image cap"
-                  />
-                  <CardBody className="vetcarobody">
-                    <CardTitle className="vetname">
-                      <a>{veterinaria.name}</a>
-                    </CardTitle>
-                    <p className="vetupdate">{veterinaria.updatedAt}</p>
-                    <hr />
-                    <CardSubtitle className="vetcp">
-                      {veterinaria.cp}
-                    </CardSubtitle>
-                    <CardText />
-                  </CardBody>
-                </Card>
-              ))}
-            </div>
-          </Slider>
-        </span>
-      </div>
+      <>
+        <div
+          className="containerCarousel"
+          style={{
+            display: "block",
+            minHeight: "0",
+            minWidth: "0",
+            textAlign: "-webkit-center"
+          }}
+        >
+          {" "}
+          <span>
+            <Slider {...settings}>
+              <div className="sliderWrapper">
+                {veterinariasSortedByDate.slice(0, 3).map(veterinaria => (
+                  <Card className="vetscarousel" style={{ width: "20em" }}>
+                    <CardImg
+                      className="placeholder"
+                      top
+                      src={placeholder}
+                      alt="Card image cap"
+                    />
+                    <CardBody className="vetcarobody">
+                      <CardTitle className="vetname">
+                        <p>{veterinaria.name}</p>
+                      </CardTitle>
+                      <p className="vetupdate">
+                        {" "}
+                        last updated &nbsp;
+                        <Moment fromNow>{veterinaria.updatedAt}</Moment>
+                      </p>
+
+                      <CardSubtitle className="vetcp">
+                        <p>
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                        </p>
+                        <FontAwesomeIcon id="mapmark" icon="map-marker" />{" "}
+                        {veterinaria.address}
+                      </CardSubtitle>
+                      <CardText />
+                    </CardBody>
+                  </Card>
+                ))}
+              </div>
+              <div className="sliderWrapper">
+                {veterinariasSortedByDate.slice(3, 6).map(veterinaria => (
+                  <Card className="vetscarousel" style={{ width: "20em" }}>
+                    <CardImg
+                      className="placeholder"
+                      top
+                      src={placeholder}
+                      alt="Card image cap"
+                    />
+                    <CardBody className="vetcarobody">
+                      <CardTitle className="vetname">
+                        <a>{veterinaria.name}</a>
+                      </CardTitle>
+                      <p className="vetupdate">
+                        last updated &nbsp;
+                        <Moment fromNow>{veterinaria.updatedAt}</Moment>
+                      </p>
+                      <hr />
+                      <CardSubtitle className="vetcp">
+                        <p>
+                          {" "}
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                        </p>
+                        <FontAwesomeIcon id="mapmark" icon="map-marker" />{" "}
+                        {veterinaria.address}
+                      </CardSubtitle>
+                      <CardText />
+                    </CardBody>
+                  </Card>
+                ))}
+              </div>
+            </Slider>
+          </span>
+        </div>
+
+        {/* carousel2 */}
+        <div
+          className="containerCarouselTwo"
+          style={{
+            display: "block",
+            minHeight: "0",
+            minWidth: "0",
+            textAlign: "-webkit-center"
+          }}
+        >
+          {" "}
+          <span>
+            <Slider {...settings}>
+              <div className="sliderWrapper">
+                {veterinariasSortedByDate.slice(0, 1).map(veterinaria => (
+                  <Card className="vetscarousel" style={{ width: "20em" }}>
+                    <CardImg
+                      className="placeholder"
+                      top
+                      src={placeholder}
+                      alt="Card image cap"
+                    />
+                    <CardBody className="vetcarobody">
+                      <CardTitle className="vetname">
+                        <p>{veterinaria.name}</p>
+                      </CardTitle>
+                      <p className="vetupdate">
+                        {" "}
+                        last updated &nbsp;
+                        <Moment fromNow>{veterinaria.updatedAt}</Moment>
+                      </p>
+
+                      <CardSubtitle className="vetcp">
+                        <p>
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                        </p>
+                        <FontAwesomeIcon id="mapmark" icon="map-marker" />{" "}
+                        {veterinaria.address}
+                      </CardSubtitle>
+                      <CardText />
+                    </CardBody>
+                  </Card>
+                ))}
+              </div>
+              <div className="sliderWrapper">
+                {veterinariasSortedByDate.slice(1, 2).map(veterinaria => (
+                  <Card className="vetscarousel" style={{ width: "20em" }}>
+                    <CardImg
+                      className="placeholder"
+                      top
+                      src={placeholder}
+                      alt="Card image cap"
+                    />
+                    <CardBody className="vetcarobody">
+                      <CardTitle className="vetname">
+                        <a>{veterinaria.name}</a>
+                      </CardTitle>
+                      <p className="vetupdate">{veterinaria.updatedAt}</p>
+                      <hr />
+                      <CardSubtitle className="vetcp">
+                        <p>
+                          {" "}
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                          <FontAwesomeIcon
+                            icon="star"
+                            style={{ color: "yellow" }}
+                          />
+                        </p>
+                        <FontAwesomeIcon id="mapmark" icon="map-marker" />{" "}
+                        {veterinaria.address}
+                      </CardSubtitle>
+                      <CardText />
+                    </CardBody>
+                  </Card>
+                ))}
+              </div>
+            </Slider>
+          </span>
+        </div>
+      </>
     );
   }
 }
