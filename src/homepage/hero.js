@@ -49,11 +49,9 @@ class Head extends React.Component {
                   onChange={this.addressInput}
                   onKeyPress={this.keyPressed}
                 />
-                <InputGroupAddon addonType="append">
-                  <Button className="danger" onClick={this.onButtonSubmit}>
-                    Buscar
-                  </Button>
-                </InputGroupAddon>
+                <Button className="danger" onClick={this.onButtonSubmit}>
+                  Buscar
+                </Button>
               </InputGroup>
             </Container>
           </div>

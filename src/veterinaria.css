@@ -2,10 +2,16 @@ div.selectedCard {
   display: -webkit-box;
   height: 13rem;
   width: 43em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
   border-top-right-radius: 1em;
   border-top-left-radius: 1em;
+}
+
+div.input-group {
+  width: 50% !important;
 }
 
 div.showCards {
@@ -47,5 +53,9 @@ div.mapVetContainer.container {
 @media screen and (max-width: 750px) {
   div.cardsdiv {
     display: none;
+  }
+
+  div.input-group {
+    width: 80% !important;
   }
 }

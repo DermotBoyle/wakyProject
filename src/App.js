@@ -1,13 +1,12 @@
 import React from "react";
 import "./App.css";
-import NavBar from "./layout/navbar";
-import Footer from "./layout/footer";
+import NavBar from "./homepage/navbar";
+import Footer from "./homepage/footer";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Home from "./Home.js";
 import Veterinaria from "./veterinaria";
 import Contacto from "./Contacto";
 import Vetdetails from "./vetdetails";
-import Modal from "./layout/modal";
 function App() {
   return (
     <div>
