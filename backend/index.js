@@ -13,9 +13,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 
 const port = process.env.PORT || 3001;
-const salt = '=DPr4D2gHVP^39s#vkU=';
-const secret = 'As#zB+U=22&FIaIm'
-
+const salt = '=DPr4D2gHVP^39s#vkU=';  /*posibilidad de pasarlo a la conf de heroku y al .env */ 
+const secret = 'As#zB+U=22&FIaIm';
 
 //---------------------------------------- SETTINGS -----------------------------------------
 
@@ -23,8 +22,6 @@ server.set("port", port);
 
 server.use("/", express.static(path.join(__dirname, "../build")));
 server.use("/veterinaria", express.static(path.join(__dirname, "../build")));
-//server.use("/", express.static(path.join(__dirname, "/build")));
-//server.use("/", express.static(path.join(__dirname, "/build")));
 
 server.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -67,6 +64,7 @@ passport.use(new LocalStrategy({usernameField: 'email'},
 ));
 
 
+
 // -----------------------------------------  API  ---------------------------------------------------
 
 
@@ -84,7 +82,7 @@ server.get("/api", (req, res) => {
 });
 
 
-/// ROUTE 01: /api/veterinary                     devuelve "Array de veterinarias (JSON)"
+/// ROUTE 01: /api/veterinary                     return "Array de veterinarias (JSON)"
 
 server.get("/api/veterinary", (req, res) => {
   Veterinary.find(req.query, (err, result) => {
@@ -94,10 +92,10 @@ server.get("/api/veterinary", (req, res) => {
 });
 
 
-/// ROUTE 02: /api/veterinary/:objectId           return "1 vet object"
+/// ROUTE 02: /api/veterinary/:internalId           return "1 vet object"
 
-server.get("/api/veterinary/:objectId", (req, res) => { 
-  Veterinary.find({ objectId: req.params.objectId }, (err, result) => {
+server.get("/api/veterinary/:internalId", (req, res) => { 
+  Veterinary.find({ internalId: req.params.internalId }, (err, result) => {
     if (err) console.log(err);
     res.json(result[0]);
   });
@@ -107,7 +105,19 @@ server.get("/api/veterinary/:objectId", (req, res) => {
 //  ROUTE 03: /api/registration                    SIGN UP
 
 server.post('/api/registration', (req, res) => {
-  // User.insertOne(req.body);
+  const user = req.body;
+  user.hash = sha1(user.password + salt);
+  delete user.password;
+
+  User.insertOne(user, (err, results) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send('An error occured in the registration');
+    } else {
+      res.json(results)
+      res.sendStatus(200);
+    }
+  });
   res.send('User created' + JSON.stringify(req.body))
 })
 
@@ -142,7 +152,6 @@ server.post('/api/login', (req, res, next)=> {
       }).send()
       res.json({jwt:token})
     })
-    // res.send('ok!')
   })(req,res,next);
 })
 
@@ -152,7 +161,6 @@ server.post('/api/login', (req, res, next)=> {
 server.post('/api/logout', (req, res, next)=> {
   res.clearCookie('jwt').send();
 })
-
 
 
 
