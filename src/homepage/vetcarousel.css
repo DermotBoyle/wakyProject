@@ -71,3 +71,30 @@ div.vetcp {
 p.vetupdate {
   text-align: initial;
 }
+
+.containerCarouselTwo {
+  display: none !important;
+}
+
+@media screen and (max-width: 950px) {
+  .containerCarouselTwo {
+    display: block !important;
+  }
+
+  .slick-prev {
+    left: 8% !important;
+    z-index: 1;
+    width: 2em;
+    background: #4496ae;
+  }
+  .slick-next {
+    right: 10% !important;
+    z-index: 1;
+    width: 2em;
+    background: #4496ae;
+  }
+
+  .containerCarousel {
+    display: none !important;
+  }
+}

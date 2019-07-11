@@ -10,10 +10,6 @@ import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(fab, faStar, faStarHalf);
 
-const urlRoot = window.location.href.includes("localhost")
-  ? "http://localhost:3001"
-  : "";
-
 class Vetdetails extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +24,7 @@ class Vetdetails extends React.Component {
     const query = qs.parse(window.location.search);
     const vetId = query["?q"] || "vMqq9vxjvZ";
     console.log(window.location.search, query);
-    fetch(urlRoot + "/api/veterinary?internalId=" + vetId) // "/api/veterinary?cp=" + e.target.value // dispaly in the map
+    fetch("/api/veterinary?internalId=" + vetId) // "/api/veterinary?cp=" + e.target.value // dispaly in the map
       .then(response => response.json())
       .then(data => {
         this.setState({

@@ -225,3 +225,8 @@ div.reviewContainer {
   padding-left: 0 !important;
   margin-top: 1em;
 }
+
+div.leaflet-container {
+  width: 52em;
+  height: 52em;
+}

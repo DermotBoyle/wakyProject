@@ -2,22 +2,21 @@ div.selectedCard {
   display: -webkit-box;
   height: 13rem;
   width: 43em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
   border-top-right-radius: 1em;
   border-top-left-radius: 1em;
 }
 
-div.showCards {
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
-  padding-left: 10.5em;
-  background-color: #f9f9f9;
-  width: 62em;
+div.input-group {
+  width: 50% !important;
 }
 
-div.flex-column {
-  width: 60em;
+div.showCards {
+  background-color: #f9f9f9;
+  width: fit-content;
 }
 
 img.vetimg {
@@ -28,4 +27,35 @@ img.vetimg {
 
 div.backgroudUnderMap {
   background-color: #f9f9f9;
+}
+
+input.form-control {
+  background-color: #eeeeee;
+  height: 3em;
+}
+div.mapVetContainer.container {
+  overflow: hidden;
+}
+
+/* .backgroudUnderMapResponse {
+  display: none !important;
+  width: 100%;
+  height: 40em;
+  padding-left: 2em;
+} */
+@media screen and (min-width: 1200px) {
+  div.mapVetContainer.container {
+    width: 100% !important;
+    max-width: 1380px !important;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  div.cardsdiv {
+    display: none;
+  }
+
+  div.input-group {
+    width: 80% !important;
+  }
 }

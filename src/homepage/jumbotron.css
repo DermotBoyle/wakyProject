@@ -17,8 +17,8 @@ div.jumbotron-fluid {
 button.danger.btn.btn-secondary {
   color: white;
   background-color: #4496ae;
-  border-bottom-right-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
 }
 
 .cont {
@@ -30,8 +30,7 @@ div.input-group {
   border-radius: 2rem;
   width: 37rem;
   border: 10px solid hsla(0, 0%, 100%, 0.5);
-  border-bottom-left-radius: 2rem;
-  border-top-left-radius: 2rem;
+  border-radius: 3em;
 }
 
 input.vetsearch.form-control {
@@ -55,4 +54,34 @@ p.display-3 {
 p.lead {
   color: white;
   font-family: "Roboto Slab", serif;
+}
+
+@media screen and (max-width: 750px) {
+  div.input-group {
+    background-color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    width: 25em;
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+    border: none;
+    margin-left: 40px;
+  }
+
+  button.danger.btn.btn-secondary {
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background-color: #4496ae;
+    border-bottom-right-radius: 0em;
+    border-top-right-radius: 0em;
+    width: 25em;
+    margin-top: 1em;
+  }
+
+  input.vetsearch.form-control {
+    width: 30em;
+    border-radius: 5px;
+  }
 }
