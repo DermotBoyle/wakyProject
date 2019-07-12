@@ -10,9 +10,15 @@ import {
   Col,
   Button
 } from "reactstrap";
-
-import placeholder from "../images/placeholder.png";
 import "./blog.css";
+import galleryPost from "../images/galleryPost.jpg";
+import videoPost from "../images/videoPost.jpg";
+import articlePost from "../images/articlePost.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarAlt, faEye, faTag } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+library.add(faCalendarAlt, faEye, faTag);
 
 class Blog extends Component {
   state = {};
@@ -29,7 +35,7 @@ class Blog extends Component {
                 className="placeholder"
                 top
                 width="100%"
-                src={placeholder}
+                src={galleryPost}
                 alt="Card image cap"
               />
               <CardBody className="blogCardBody">
@@ -42,9 +48,24 @@ class Blog extends Component {
                 </p>
                 <hr />
                 <CardText>
-                  <span>Date</span>
-                  <span>views</span>
-                  <span>tags</span>
+                  <span>
+                    <FontAwesomeIcon
+                      icon="calendar-alt"
+                      style={{ color: "black" }}
+                    />{" "}
+                    &nbsp; Date &nbsp;
+                  </span>
+                  <span>
+                    {" "}
+                    <FontAwesomeIcon icon="eye" style={{ color: "black" }} />
+                    &nbsp; views
+                  </span>
+                  <span>
+                    {" "}
+                    &nbsp;
+                    <FontAwesomeIcon icon="tag" style={{ color: "black" }} />
+                    &nbsp; tags
+                  </span>
                 </CardText>
               </CardBody>
             </Card>
@@ -54,11 +75,14 @@ class Blog extends Component {
                 className="placeholder"
                 top
                 width="100%"
-                src={placeholder}
+                src={videoPost}
                 alt="Card image cap"
               />
               <CardBody className="blogCardBody">
-                <CardTitle className="BlogCardTitle">Gallery Post</CardTitle>
+                <CardTitle className="BlogCardTitle">
+                  {" "}
+                  Video Gallery Post
+                </CardTitle>
                 <p className="vetupdate">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -67,9 +91,26 @@ class Blog extends Component {
                 </p>
                 <hr />
                 <CardText>
-                  <span>Date</span>
-                  <span>views</span>
-                  <span>tags</span>
+                  <span>
+                    <FontAwesomeIcon
+                      icon="calendar-alt"
+                      style={{ color: "black" }}
+                    />
+                    &nbsp; Date &nbsp;
+                  </span>
+                  <span>
+                    {" "}
+                    <FontAwesomeIcon icon="eye" style={{ color: "black" }} />
+                    &nbsp; views &nbsp;
+                  </span>
+                  <span>
+                    {" "}
+                    <FontAwesomeIcon
+                      icon="tag"
+                      style={{ color: "black" }}
+                    />{" "}
+                    &nbsp; tags
+                  </span>
                 </CardText>
               </CardBody>
             </Card>
@@ -79,11 +120,11 @@ class Blog extends Component {
                 className="placeholder"
                 top
                 width="100%"
-                src={placeholder}
+                src={articlePost}
                 alt="Card image cap"
               />
               <CardBody className="blogCardBody">
-                <CardTitle className="BlogCardTitle">Gallery Post</CardTitle>
+                <CardTitle className="BlogCardTitle">Article Post</CardTitle>
                 <p className="vetupdate">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -92,9 +133,21 @@ class Blog extends Component {
                 </p>
                 <hr />
                 <CardText>
-                  <span>Date</span>
-                  <span>views</span>
-                  <span>tags</span>
+                  <span>
+                    <FontAwesomeIcon
+                      icon="calendar-alt"
+                      style={{ color: "black" }}
+                    />
+                    &nbsp; Date &nbsp;
+                  </span>
+                  <span>
+                    <FontAwesomeIcon icon="eye" style={{ color: "black" }} />
+                    &nbsp; views &nbsp;
+                  </span>
+                  <span>
+                    <FontAwesomeIcon icon="tag" style={{ color: "black" }} />
+                    &nbsp; tags
+                  </span>
                 </CardText>
               </CardBody>
             </Card>

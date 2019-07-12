@@ -2,24 +2,38 @@ h3.blogHeader {
   font-family: "Roboto Slab", serif;
   text-align: center;
   margin-top: 4em;
-  margin-bottom: 4em;
+  margin-bottom: 3em;
   color: #586c91;
   font-weight: bold;
+  font-size: 2em;
 }
 
 div.blogcontainer {
   text-align: -webkit-center;
 }
 
+img.placeholder {
+  width: -webkit-fill-available;
+}
+
+.card-title {
+  text-align: initial;
+  color: #4496ae;
+  font-weight: bold;
+}
+
+.card-text {
+  text-align: initial;
+}
 div.btnrow {
   display: flex;
   justify-content: center;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin-top: 4em;
+  margin-bottom: 3em;
 }
 
 div.blogCard {
-  width: 20em !important;
+  width: 25em !important;
   border-radius: 15px;
   margin-left: 1em;
 }
@@ -32,7 +46,7 @@ div.blogCard {
 
 div.blogwrap {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 button.gotoBlog {

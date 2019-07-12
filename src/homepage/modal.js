@@ -20,13 +20,20 @@ class Modal extends React.Component {
     };
   }
 
-  confirmPassword = () => {
+  confirmPassword = e => {
     this.setState({
-      confirmPassword: this.state.confirmPassword
+      confirmPassword: e.target.value
     });
   };
 
   handleRegister = () => {
+    console.log("changing");
+    this.setState({
+      displayRegister: !this.state.displayRegister
+    });
+  };
+
+  handleLoginSwitch = () => {
     console.log("changing");
     this.setState({
       displayRegister: !this.state.displayRegister
@@ -51,9 +58,31 @@ class Modal extends React.Component {
       headers: { "Content-Type": "application/json" } // otras opciones application/xml, text/csv, application/multipart-form-data
     }).then(res => {
       console.log("login finished, here is response", res);
-      if (res.status === 200) alert("Login success!");
-      else alert("Login error " + res.status);
+      if (res.status === 200) {
+        alert("Login success!");
+        window.location.reload();
+      } else alert("Login error " + res.status);
     });
+  };
+
+  handleRegistration = () => {
+    if (this.state.password !== this.state.confirmPassword) {
+      alert("passwords entered do not match");
+    } else {
+      console.log("handling registration....", this.state);
+
+      fetch("/api/registration", {
+        method: "POST",
+        body: JSON.stringify(this.state),
+        headers: { "Content-Type": "application/json" } // otras opciones application/xml, text/csv, application/multipart-form-data
+      }).then(res => {
+        console.log("registration finished, here is response", res);
+        if (res.status === 201) {
+          alert("Register success!");
+          window.location.reload();
+        } else alert("register error " + res.status);
+      });
+    }
   };
 
   render() {
@@ -75,7 +104,7 @@ class Modal extends React.Component {
                     <FontAwesomeIcon icon="times-circle" />
                   </a>
                 </div>
-                <h5>SignUp</h5>
+                <h5 style={{ marginBottom: "1em" }}>SignUp</h5>
                 <Button style={{ display: "none" }} className="FacebookBtn">
                   <FontAwesomeIcon
                     id="facebookicon"
@@ -83,7 +112,7 @@ class Modal extends React.Component {
                   />
                   Entrar con Facebook
                 </Button>
-                <hr />
+                <hr style={{ display: "none" }} />
                 <div className="borderbottom">
                   <Button
                     id="logIn"
@@ -131,10 +160,15 @@ class Modal extends React.Component {
                       id="password"
                       type="password"
                       onChange={this.confirmPassword}
+                      style={{ marginBottom: "0em" }}
                     />
                   </div>
-                  <Button id="Entrar" onClick={this.handleLogin}>
-                    Entrar
+                  <Button
+                    id="Entrar"
+                    onClick={this.handleRegistration}
+                    style={{ marginTop: "1em" }}
+                  >
+                    Registrar
                   </Button>
                 </form>
               </div>

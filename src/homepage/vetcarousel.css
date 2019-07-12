@@ -32,6 +32,14 @@ h2.newvets {
   width: 2em;
   background: #4496ae;
 }
+
+.slick-track {
+  margin-bottom: 3em;
+}
+
+.slick-dots {
+  bottom: 8px;
+}
 img.placeholder {
   width: 20em;
   height: 12em;

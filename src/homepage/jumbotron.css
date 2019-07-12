@@ -16,6 +16,7 @@ div.jumbotron-fluid {
 
 button.danger.btn.btn-secondary {
   color: white;
+  width: 8em;
   background-color: #4496ae;
   border-bottom-right-radius: 2rem;
   border-top-right-radius: 2rem;
@@ -42,7 +43,9 @@ input.vetsearch.form-control {
 .jumbotron-fluid {
   background-color: black;
 }
-
+.btn {
+  border-radius: 0;
+}
 p.display-3 {
   font-size: 50px;
   font-weight: bold;

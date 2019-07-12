@@ -70,9 +70,9 @@ div.opinions {
 
 div.ratings {
   width: 27em;
-  -webkit-box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
   height: 4em;
   padding-top: 8px;
   padding-left: 6px;
@@ -106,12 +106,12 @@ div.contactoContainer.row {
 }
 
 div.contactoWrapper {
-  -webkit-box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
   margin-top: 2em;
   padding-top: 0 !important;
-  width: 27em;
+  width: 27.5em;
 }
 
 button.pideCita {
@@ -193,6 +193,7 @@ h3.opinionesTitle {
 
 div.reviewContainer {
   padding-left: 100px;
+  border-width: 1px !important;
 }
 
 div.reviewUser {
@@ -201,9 +202,9 @@ div.reviewUser {
 
 div.horarioContainer {
   margin-top: 2em;
-  -webkit-box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px -1px 12px -2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
   width: 27em;
   padding: 1em;
 }

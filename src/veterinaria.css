@@ -11,7 +11,7 @@ div.selectedCard {
 }
 
 div.input-group {
-  width: 50% !important;
+  width: 45% !important;
 }
 
 div.showCards {
@@ -19,10 +19,22 @@ div.showCards {
   width: fit-content;
 }
 
+.background {
+  background-color: #f9f9f9;
+  padding-top: 2em;
+}
+
+div.col {
+  margin-bottom: 3em;
+}
 img.vetimg {
   height: 12.9em;
   border-bottom-left-radius: 1em;
   border-top-left-radius: 1em;
+}
+
+.card-img-top {
+  width: auto;
 }
 
 div.backgroudUnderMap {
@@ -48,14 +60,44 @@ div.mapVetContainer.container {
     width: 100% !important;
     max-width: 1380px !important;
   }
+
+  .mapVetCol {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 750px) {
   div.cardsdiv {
     display: none;
   }
+  div.leaflet-container {
+    width: 101em !important;
+  }
 
   div.input-group {
     width: 80% !important;
+    margin-left: 1em !important;
+    padding: 0 !important;
+  }
+
+  .background {
+    padding: 0em !important;
+  }
+
+  p {
+    margin-left: 2.5em !important;
+  }
+
+  div.col {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    margin-left: 2.5em !important;
+  }
+
+  button.btn.btn-success {
+    margin-left: 2.5em !important;
   }
 }

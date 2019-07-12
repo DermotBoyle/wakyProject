@@ -9,7 +9,7 @@ import {
   CardSubtitle,
   Button
 } from "reactstrap";
-import placeholder from "../images/placeholder.png";
+import vetClinic from "../images/vetClinic.jpg";
 import "./vetcarousel.css";
 import Moment from "react-moment";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -68,12 +68,12 @@ class NewVetsCarousel extends Component {
           <span>
             <Slider {...settings}>
               <div className="sliderWrapper">
-                {veterinariasSortedByDate.slice(0, 3).map(veterinaria => (
+                {veterinariasSortedByDate.slice(0, 4).map(veterinaria => (
                   <Card className="vetscarousel" style={{ width: "20em" }}>
                     <CardImg
                       className="placeholder"
                       top
-                      src={placeholder}
+                      src={vetClinic}
                       alt="Card image cap"
                     />
                     <CardBody className="vetcarobody">
@@ -114,12 +114,12 @@ class NewVetsCarousel extends Component {
                 ))}
               </div>
               <div className="sliderWrapper">
-                {veterinariasSortedByDate.slice(3, 6).map(veterinaria => (
+                {veterinariasSortedByDate.slice(5, 9).map(veterinaria => (
                   <Card className="vetscarousel" style={{ width: "20em" }}>
                     <CardImg
                       className="placeholder"
                       top
-                      src={placeholder}
+                      src={vetClinic}
                       alt="Card image cap"
                     />
                     <CardBody className="vetcarobody">
@@ -182,7 +182,7 @@ class NewVetsCarousel extends Component {
                     <CardImg
                       className="placeholder"
                       top
-                      src={placeholder}
+                      src={vetClinic}
                       alt="Card image cap"
                     />
                     <CardBody className="vetcarobody">
@@ -228,7 +228,7 @@ class NewVetsCarousel extends Component {
                     <CardImg
                       className="placeholder"
                       top
-                      src={placeholder}
+                      src={vetClinic}
                       alt="Card image cap"
                     />
                     <CardBody className="vetcarobody">

@@ -34,6 +34,13 @@ export default class NavBar extends React.Component {
     });
   }
 
+  logOut() {
+    fetch("/api/logout", { method: "POST" }).then(r => {
+      if (r.status === 200) window.location.reload();
+      else alert("User could not log out");
+    });
+  }
+
   closeClick() {
     console.log("close");
     this.setState({
@@ -86,14 +93,26 @@ export default class NavBar extends React.Component {
                 <NavLink href="/contacto">Contacto</NavLink>
               </NavItem>
               {/*the button has to have onClick stuff for register */}
-              <Button
-                to="registration"
-                color="success"
-                size="xs"
-                onClick={this.show}
-              >
-                Iniciar Sesion
-              </Button>
+              {this.props.user ? (
+                <Button
+                  to="registration"
+                  color="warning"
+                  size="xs"
+                  onClick={this.logOut}
+                >
+                  Log Out
+                </Button>
+              ) : (
+                <Button
+                  to="registration"
+                  color="success"
+                  size="xs"
+                  onClick={this.show}
+                >
+                  Iniciar Sesion
+                </Button>
+              )}
+
               <Modal
                 show={this.state.show}
                 onKeyPress={this.KeyPressed}

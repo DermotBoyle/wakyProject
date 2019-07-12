@@ -8,7 +8,7 @@ import {
   CardSubtitle,
   Button
 } from "reactstrap";
-import placeholder from "./images/placeholder.png";
+import vetClinic from "./images/vetClinic.jpg";
 import { InputGroup, InputGroupText, InputGroupAddon, Input } from "reactstrap";
 import { Container, Row, Col } from "reactstrap";
 import qs from "qs";
@@ -76,15 +76,16 @@ class Veterinaria extends Component {
                 <h3
                   style={{
                     fontFamily: "Open Sans, sans-serif",
-                    fontSize: "15px",
+                    fontSize: "30px",
                     fontWeight: "bold",
                     color: "#6b6e7f",
                     textAlign: "left",
-                    margin: "30px 0px 20px 20px"
+                    margin: "30px 0px 20px 20px",
+                    marginLeft: "4em"
                   }}
                 >
                   Veterinarias en &nbsp;
-                  <span style={{ fontSize: "18px", color: "#4496ae" }}>
+                  <span style={{ fontSize: "25px", color: "#4496ae" }}>
                     {veterinaria.city}
                   </span>
                 </h3>
@@ -92,11 +93,12 @@ class Veterinaria extends Component {
                 <p
                   style={{
                     fontFamily: "Open Sans, sans-serif",
-                    fontSize: "10px",
+                    fontSize: "15px",
                     fontWeight: "bold",
                     color: "#6b6e7f",
                     textAlign: "left",
-                    margin: "30px 0px 0px 20px"
+                    margin: "30px 0px 0px 20px",
+                    marginLeft: "8em"
                   }}
                 >
                   Introduce la direccion
@@ -106,7 +108,7 @@ class Veterinaria extends Component {
             <InputGroup
               style={{
                 margin: "10px 0px 0px 10px",
-                width: "95%"
+                marginLeft: "6em"
               }}
             >
               <Input
@@ -125,6 +127,7 @@ class Veterinaria extends Component {
               size="s"
               style={{
                 margin: "0px 0px 20px 20px",
+                marginLeft: "8em",
                 height: "40px",
                 color: "#f9f9f9"
               }}
@@ -134,100 +137,111 @@ class Veterinaria extends Component {
               Buscar{" "}
             </Button>
           </div>
-          <Container className="mapVetContainer">
-            <Row>
-              <Col className="mapVetCol">
-                <div className="cardsdiv">
-                  {veterinarias.map(veterinaria => (
-                    <div className="showCards">
-                      <Card className="selectedCard">
-                        <CardImg
-                          className="vetimg"
-                          top
-                          width="100%"
-                          src={placeholder}
-                          alt="Card image cap"
-                        />
-                        <CardBody className="selectedcardbody">
-                          <CardTitle
-                            className="selectedTitle"
-                            style={{
-                              color: "#4496ae",
-                              fontSize: "18px",
-                              fontWeight: "600"
-                            }}
+          <div className="background">
+            <Container
+              className="mapVetContainer"
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <Row>
+                <Col className="mapVetCol">
+                  <div className="cardsdiv">
+                    {veterinarias.map(veterinaria => (
+                      <div className="showCards">
+                        <Card className="selectedCard">
+                          <CardImg
+                            className="vetimg"
+                            top
+                            width="auto"
+                            src={vetClinic}
+                            alt="Card image cap"
+                          />
+                          <CardBody className="selectedcardbody">
+                            <CardTitle
+                              className="selectedTitle"
+                              style={{
+                                color: "#4496ae",
+                                fontSize: "18px",
+                                fontWeight: "600"
+                              }}
+                            >
+                              {veterinaria.name}
+                            </CardTitle>
+                            <p className="selectedUpdated">
+                              <p>
+                                {" "}
+                                <FontAwesomeIcon
+                                  icon="star"
+                                  style={{ color: "yellow" }}
+                                />
+                                <FontAwesomeIcon
+                                  icon="star"
+                                  style={{ color: "yellow" }}
+                                />
+                                <FontAwesomeIcon
+                                  icon="star"
+                                  style={{ color: "yellow" }}
+                                />
+                                <FontAwesomeIcon
+                                  icon="star"
+                                  style={{ color: "yellow" }}
+                                />
+                              </p>
+                              <FontAwesomeIcon id="mapmark" icon="map-marker" />{" "}
+                              {veterinaria.address}
+                            </p>
+                            <hr />
+                            <CardSubtitle className="selectedCP">
+                              CP :{veterinaria.cp}
+                            </CardSubtitle>
+                            <CardText>
+                              <a href={veterinaria.web}>Website</a>
+                            </CardText>
+                          </CardBody>
+                        </Card>
+                      </div>
+                    ))}
+                  </div>
+                </Col>
+                <Col
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    paddingTop: "1em"
+                  }}
+                >
+                  <div className="mapVetContainer" />
+                  <Map center={position} zoom={this.state.zoom}>
+                    <TileLayer
+                      attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    {veterinarias.map((veterinaria, index) => (
+                      <Marker
+                        position={[
+                          veterinaria.geolocation.latitude,
+                          veterinaria.geolocation.longitude
+                        ]}
+                        key={index}
+                      >
+                        <Popup>
+                          <a
+                            onClick={() =>
+                              (window.location.href = `/details?q=${
+                                veterinaria.internalId
+                              }`)
+                            }
+                            href="#"
                           >
                             {veterinaria.name}
-                          </CardTitle>
-                          <p className="selectedUpdated">
-                            <p>
-                              {" "}
-                              <FontAwesomeIcon
-                                icon="star"
-                                style={{ color: "yellow" }}
-                              />
-                              <FontAwesomeIcon
-                                icon="star"
-                                style={{ color: "yellow" }}
-                              />
-                              <FontAwesomeIcon
-                                icon="star"
-                                style={{ color: "yellow" }}
-                              />
-                              <FontAwesomeIcon
-                                icon="star"
-                                style={{ color: "yellow" }}
-                              />
-                            </p>
-                            <FontAwesomeIcon id="mapmark" icon="map-marker" />{" "}
-                            {veterinaria.address}
-                          </p>
-                          <hr />
-                          <CardSubtitle className="selectedCP">
-                            CP :{veterinaria.cp}
-                          </CardSubtitle>
-                          <CardText>
-                            <a href={veterinaria.web}>Website</a>
-                          </CardText>
-                        </CardBody>
-                      </Card>
-                    </div>
-                  ))}
-                </div>
-              </Col>
-              <Col>
-                <div className="mapVetContainer" />
-                <Map center={position} zoom={this.state.zoom}>
-                  <TileLayer
-                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  {veterinarias.map((veterinaria, index) => (
-                    <Marker
-                      position={[
-                        veterinaria.geolocation.latitude,
-                        veterinaria.geolocation.longitude
-                      ]}
-                      key={index}
-                    >
-                      <Popup>
-                        <a
-                          onClick={() =>
-                            (window.location.href = `/details?q=${
-                              veterinaria.internalId
-                            }`)
-                          }
-                          href="#"
-                        >
-                          {veterinaria.name}
-                        </a>
-                      </Popup>
-                    </Marker>
-                  ))}
-                </Map>
-              </Col>
-            </Row>
-          </Container>
+                          </a>
+                        </Popup>
+                      </Marker>
+                    ))}
+                  </Map>
+                </Col>
+              </Row>
+            </Container>
+          </div>
         </div>
       </>
     );

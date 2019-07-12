@@ -51,6 +51,7 @@ button#logIn {
 button#Entrar {
   background-color: #4496ae;
   width: 6em;
+  margin-top: 1em;
 }
 
 button#Registro:active {
@@ -72,7 +73,7 @@ div.formwrapper {
   background-color: white;
   position: absolute;
   margin-top: 10%;
-  height: 550px;
+  height: 505px;
   width: 400px;
   top: 0;
   z-index: 2;
