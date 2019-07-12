@@ -68,7 +68,7 @@ passport.use(new LocalStrategy({usernameField: 'email'},
 // -----------------------------------------  API  ---------------------------------------------------
 
 
-/// ROUTE 00: /api                devuelve "Lista de APIs"
+/// ROUTE 00: /api                          returns "API list"
 
 server.get("/api", (req, res) => {
   res.write("/api/veterinary                List of veterinaries\n");
@@ -82,9 +82,9 @@ server.get("/api", (req, res) => {
 });
 
 
-/// ROUTE 01: /api/veterinary                     return "Array de veterinarias (JSON)"
+/// ROUTE 01: /api/veterinary               return "Vet array (JSON)"
 
-server.get("/api/veterinary", (req, res) => {
+server.get('/api/veterinary', (req, res) => {
   Veterinary.find(req.query, (err, result) => {
     if (err) console.log(err);
     res.json(result);
@@ -94,7 +94,7 @@ server.get("/api/veterinary", (req, res) => {
 
 /// ROUTE 02: /api/veterinary/:internalId           return "1 vet object"
 
-server.get("/api/veterinary/:internalId", (req, res) => { 
+server.get('/api/veterinary/:internalId', (req, res) => { 
   Veterinary.find({ internalId: req.params.internalId }, (err, result) => {
     if (err) console.log(err);
     res.json(result[0]);
@@ -104,21 +104,36 @@ server.get("/api/veterinary/:internalId", (req, res) => {
 
 //  ROUTE 03: /api/registration                    SIGN UP
 
-server.post('/api/registration', (req, res) => {
-  const user = req.body;
-  user.hash = sha1(user.password + salt);
-  delete user.password;
+server.post('/api/registration',(req, res) => {
+  console.log('POST /api/registration', req.body);
+  const data = req.body;
 
-  User.insertOne(user, (err, results) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send('An error occured in the registration');
+  User.findOne({username: data.username}, (err, result) => {
+    if (result) {
+      res.status(409).send('Your email is already created')
+    } else if( err) {
+      res.sendStatus(500)
     } else {
-      res.json(results)
-      res.sendStatus(200);
-    }
-  });
-  res.send('User created' + JSON.stringify(req.body))
+      data.userHash = sha1(data.password + salt);
+      const user = new User(data);
+
+      user.save((err, results) => {
+        if (err) {
+          console.log(err);
+          res.status(500).send('An error occured in the registration');
+        } else {
+          console.log('User created', {
+            user,
+            results
+          })
+          res.status(201);
+          res.json(results);
+        }
+      });
+    };
+
+    
+  }); 
 })
 
 
