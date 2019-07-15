@@ -66,5 +66,10 @@ button.gotoBlog {
 
   div.blogCard {
     margin-bottom: 1em;
+    width: 80% !important;
+  }
+
+  h3.blogHeader {
+    margin-left: 0 !important;
   }
 }

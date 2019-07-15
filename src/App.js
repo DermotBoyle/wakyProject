@@ -32,9 +32,11 @@ class App extends React.Component {
               <Route
                 exact
                 path="/details"
-                render={props => (
+                /*render={props => (
                   <Vetdetails {...props} user={this.props.user} />
-                )}
+                )}*/ component={
+                  Vetdetails
+                }
               />
             </Switch>
             <Footer />

@@ -26,7 +26,7 @@ button.danger.btn.btn-secondary {
   text-align: center;
 }
 
-div.input-group {
+div.input-group.homeInput {
   display: inline-flex;
   border-radius: 2rem;
   width: 37rem;
@@ -60,15 +60,16 @@ p.lead {
 }
 
 @media screen and (max-width: 750px) {
-  div.input-group {
+  div.input-group.homeInput {
     background-color: rgba(255, 255, 255, 0.35);
     text-align: center;
     width: 25em;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: center;
-    padding: 2em;
+    padding: 2em !important;
     border: none;
-    margin-left: 40px;
   }
 
   button.danger.btn.btn-secondary {
@@ -86,5 +87,13 @@ p.lead {
   input.vetsearch.form-control {
     width: 30em;
     border-radius: 5px;
+  }
+
+  p.display-3 {
+    margin-left: 0 !important;
+  }
+
+  div.input-group {
+    margin-left: 0;
   }
 }

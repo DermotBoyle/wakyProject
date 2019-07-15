@@ -27,7 +27,7 @@ h2.newvets {
   background: #4496ae;
 }
 .slick-next {
-  right: 5% !important;
+  right: 3% !important;
   z-index: 1;
   width: 2em;
   background: #4496ae;
@@ -90,13 +90,13 @@ p.vetupdate {
   }
 
   .slick-prev {
-    left: 8% !important;
+    left: 2% !important;
     z-index: 1;
     width: 2em;
     background: #4496ae;
   }
   .slick-next {
-    right: 10% !important;
+    right: 15% !important;
     z-index: 1;
     width: 2em;
     background: #4496ae;

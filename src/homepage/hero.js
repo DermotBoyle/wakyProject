@@ -38,11 +38,11 @@ class Head extends React.Component {
         <Jumbotron fluid>
           <div className="overLay">
             <Container className="cont" fluid>
-              <p className="display-3">Encuentra tu veterinaria idea</p>
+              <p className="display-3">Encuentra tu veterinaria ideal</p>
               <p className="lead">
                 Descubre las mejores veterinarias cerca de ti
               </p>
-              <InputGroup>
+              <InputGroup className="homeInput">
                 <Input
                   className="vetsearch"
                   placeholder="Calle,Barrio o CP"
