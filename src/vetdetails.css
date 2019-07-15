@@ -231,3 +231,11 @@ div.leaflet-container {
   width: 52em;
   height: 52em;
 }
+
+.starHover:hover {
+  color: yellow;
+}
+
+.starHover {
+  color: grey;
+}

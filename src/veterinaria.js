@@ -164,7 +164,16 @@ class Veterinaria extends Component {
                                 fontWeight: "600"
                               }}
                             >
-                              {veterinaria.name}
+                              <a
+                                onClick={() =>
+                                  (window.location.href = `/details?q=${
+                                    veterinaria.internalId
+                                  }`)
+                                }
+                                href="#"
+                              >
+                                {veterinaria.name}
+                              </a>
                             </CardTitle>
                             <p className="selectedUpdated">
                               <p>

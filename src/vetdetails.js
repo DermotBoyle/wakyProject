@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import qs from "qs";
-import Veterinaria from "./veterinaria";
+import axios from "axios";
 import "./vetdetails.css";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
-import { Container, Row, Col, Button } from "reactstrap";
+import { Container, Row, Col, Button, Input } from "reactstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
@@ -17,7 +17,16 @@ class Vetdetails extends React.Component {
       veterinarias: [],
       lat: 40.416775,
       lng: -3.70379,
-      zoom: 13
+      zoom: 13,
+      users: [],
+      starClick: false,
+      value: 0,
+      bgColor1: "",
+      bgColor2: "",
+      bgColor3: "",
+      bgColor4: "",
+      bgColor5: "",
+      userComment: ""
     };
   }
   componentDidMount = () => {
@@ -30,9 +39,100 @@ class Vetdetails extends React.Component {
         this.setState({
           veterinarias: data
         });
+        console.log(this.state.veterinarias[0].objectId);
+      });
+
+    fetch("/api/user/me")
+      .then(r => r.json())
+      .then(data => {
+        this.setState({
+          users: data
+        });
+        console.log(this.state.users);
       });
   };
 
+  
+  handlecommentSubmit = () => {
+
+    let user = {
+      comment : this.state.userComment,
+      value: this.state.value
+    }
+    
+    axios.post(/api/user/rating + this.state.veterinarias[0].objectId ,{user})
+      .then(res => {
+        console.log(res);
+      })
+    
+  };
+
+  comment = e => {
+    this.setState({
+      comment: (this.state.comment = e.target.value)
+    });
+    console.log(this.state.comment);
+  };
+
+  rating1 = () => {
+    this.setState({
+      value: (this.state.value = 1),
+      bgColor1: (this.state.bgColor1 = "yellow"),
+      bgColor2: (this.state.bgColor2 = "grey"),
+      bgColor3: (this.state.bgColor3 = "grey"),
+      bgColor4: (this.state.bgColor4 = "grey"),
+      bgColor5: (this.state.bgColor5 = "grey")
+    });
+    console.log(this.state.value);
+  };
+
+  rating2 = () => {
+    this.setState({
+      value: (this.state.value = 2),
+      bgColor1: (this.state.bgColor1 = "yellow"),
+      bgColor2: (this.state.bgColor2 = "yellow"),
+      bgColor3: (this.state.bgColor3 = "grey"),
+      bgColor4: (this.state.bgColor4 = "grey"),
+      bgColor5: (this.state.bgColor5 = "grey")
+    });
+    console.log(this.state.value);
+  };
+
+  rating3 = () => {
+    this.setState({
+      value: (this.state.value = 3),
+      bgColor1: (this.state.bgColor1 = "yellow"),
+      bgColor2: (this.state.bgColor2 = "yellow"),
+      bgColor3: (this.state.bgColor3 = "yellow"),
+      bgColor4: (this.state.bgColor4 = "grey"),
+      bgColor5: (this.state.bgColor5 = "grey")
+    });
+    console.log(this.state.value);
+  };
+
+  rating4 = () => {
+    this.setState({
+      value: (this.state.value = 4),
+      bgColor1: (this.state.bgColor1 = "yellow"),
+      bgColor2: (this.state.bgColor2 = "yellow"),
+      bgColor3: (this.state.bgColor3 = "yellow"),
+      bgColor4: (this.state.bgColor4 = "yellow"),
+      bgColor5: (this.state.bgColor5 = "grey")
+    });
+    console.log(this.state.value);
+  };
+
+  rating5 = () => {
+    this.setState({
+      value: (this.state.value = 5),
+      bgColor1: (this.state.bgColor1 = "yellow"),
+      bgColor2: (this.state.bgColor2 = "yellow"),
+      bgColor3: (this.state.bgColor3 = "yellow"),
+      bgColor4: (this.state.bgColor4 = "yellow"),
+      bgColor5: (this.state.bgColor5 = "yellow")
+    });
+    console.log(this.state.value);
+  };
   render() {
     const veterinarias = this.state.veterinarias;
     const position = [this.state.lat, this.state.lng];
@@ -89,7 +189,7 @@ class Vetdetails extends React.Component {
                     </Col>
                     <Col className="pointsDetails">
                       <Row className="pointTitle">
-                        Punctuacion del establecimiento
+                        Puntuacion del establecimiento
                       </Row>
                       <Row />
                       <Row>
@@ -118,6 +218,72 @@ class Vetdetails extends React.Component {
                       </Row>
                     </Col>
                   </Row>
+                  <Container className="userCommentContainer">
+                    <h2 className="userCommentTitle">Leave a comment & rate</h2>
+                    <Row
+                      style={{
+                        marginBottom: "1em",
+                        marginLeft: "1em",
+                        fontSize: "2em"
+                      }}
+                    >
+                      {" "}
+                      <FontAwesomeIcon
+                        icon="star"
+                        className="starHover"
+                        onClick={this.handleStarClick1}
+                        onClick={this.rating1}
+                        style={{ color: this.state.bgColor1 }}
+                      />
+                      <FontAwesomeIcon
+                        icon="star"
+                        className="starHover"
+                        onClick={this.handleStarClick}
+                        onClick={this.rating2}
+                        style={{ color: this.state.bgColor2 }}
+                      />
+                      <FontAwesomeIcon
+                        icon="star"
+                        className="starHover"
+                        onClick={this.handleStarClick}
+                        onClick={this.rating3}
+                        style={{ color: this.state.bgColor3 }}
+                      />
+                      <FontAwesomeIcon
+                        icon="star"
+                        className="starHover"
+                        onClick={this.handleStarClick}
+                        onClick={this.rating4}
+                        style={{ color: this.state.bgColor4 }}
+                      />
+                      <FontAwesomeIcon
+                        icon="star"
+                        className="starHover"
+                        onClick={this.handleStarClick}
+                        onClick={this.rating5}
+                        style={{ color: this.state.bgColor5 }}
+                      />
+                    </Row>
+                    <Row className="rowUser">
+                      <Col className="colUser">
+                        <Input
+                          type="textarea"
+                          name="text"
+                          id="exampleText"
+                          className="userCommentInput"
+                          style={{ height: "7em" }}
+                          userComment={this.state.userComment}
+                          onChange={this.comment}
+                        />
+                        <Button
+                          className="commentSubmit"
+                          onClick={this.handlecommentSubmit}
+                        >
+                          Submit
+                        </Button>
+                      </Col>
+                    </Row>
+                  </Container>
                   <Container className="contactoWrapper">
                     <h2 className="contactoTitle">Contacto</h2>
                     <Row className="contactoContainer">
