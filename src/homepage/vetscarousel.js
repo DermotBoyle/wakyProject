@@ -38,9 +38,11 @@ class NewVetsCarousel extends Component {
 
   render() {
     const veterinarias = this.state.veterinarias || [];
-    const veterinariasSortedByDate = veterinarias.sort(function compare(a, b) {
-      return new Date(b.updatedAt) - new Date(a.updatedAt);
-    });
+    const veterinariasSortedByDate = veterinarias
+      .slice(0, 100)
+      .sort(function compare(a, b) {
+        return new Date(b.updatedAt) - new Date(a.updatedAt);
+      });
 
     var settings = {
       dots: true,
@@ -78,7 +80,18 @@ class NewVetsCarousel extends Component {
                     />
                     <CardBody className="vetcarobody">
                       <CardTitle className="vetname">
-                        <p>{veterinaria.name}</p>
+                        <p>
+                          <a
+                            onClick={() =>
+                              (window.location.href = `/details?q=${
+                                veterinaria.objectId
+                              }`)
+                            }
+                            href="#"
+                          >
+                            {veterinaria.name}
+                          </a>
+                        </p>
                       </CardTitle>
                       <p className="vetupdate">
                         {" "}
@@ -124,7 +137,14 @@ class NewVetsCarousel extends Component {
                     />
                     <CardBody className="vetcarobody">
                       <CardTitle className="vetname">
-                        <a>{veterinaria.name}</a>
+                        <a
+                          onClick={() =>
+                            (window.location.href = `/details?q=${
+                              veterinaria.objectId
+                            }`)
+                          }
+                          href="#"
+                        />
                       </CardTitle>
                       <p className="vetupdate">
                         last updated &nbsp;

@@ -167,7 +167,7 @@ class Veterinaria extends Component {
                               <a
                                 onClick={() =>
                                   (window.location.href = `/details?q=${
-                                    veterinaria.internalId
+                                    veterinaria.objectId
                                   }`)
                                 }
                                 href="#"
@@ -236,7 +236,7 @@ class Veterinaria extends Component {
                           <a
                             onClick={() =>
                               (window.location.href = `/details?q=${
-                                veterinaria.internalId
+                                veterinaria.objectId
                               }`)
                             }
                             href="#"

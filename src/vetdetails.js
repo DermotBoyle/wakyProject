@@ -33,13 +33,12 @@ class Vetdetails extends React.Component {
     const query = qs.parse(window.location.search);
     const vetId = query["?q"] || "vMqq9vxjvZ";
     console.log(window.location.search, query);
-    fetch("/api/veterinary?internalId=" + vetId) // "/api/veterinary?cp=" + e.target.value // dispaly in the map
+    fetch("/api/veterinary?objectId=" + vetId) // "/api/veterinary?cp=" + e.target.value // dispaly in the map
       .then(response => response.json())
       .then(data => {
         this.setState({
           veterinarias: data
         });
-        console.log(this.state.veterinarias[0].objectId);
       });
 
     fetch("/api/user/me")
@@ -171,7 +170,7 @@ class Vetdetails extends React.Component {
                     <a
                       onClick={() =>
                         (window.location.href = `/details?q=${
-                          veterinaria.internalId
+                          veterinaria.objectId
                         }`)
                       }
                       href="#"
