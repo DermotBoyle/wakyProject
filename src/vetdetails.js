@@ -26,7 +26,7 @@ class Vetdetails extends React.Component {
       bgColor3: "",
       bgColor4: "",
       bgColor5: "",
-      userComment: ""
+      comment: ""
     };
   }
   componentDidMount = () => {
@@ -52,19 +52,21 @@ class Vetdetails extends React.Component {
       });
   };
 
-  
   handlecommentSubmit = () => {
-
-    let user = {
-      comment : this.state.userComment,
-      value: this.state.value
-    }
-    
-    axios.post(/api/user/rating + this.state.veterinarias[0].objectId ,{user})
-      .then(res => {
-        console.log(res);
+    axios({
+      method: "post",
+      url: "/api/user/me/comment",
+      data: {
+        comment: this.state.comment,
+        value: this.state.value
+      }
+    })
+      .then(function(response) {
+        console.log(response);
       })
-    
+      .catch(function(error) {
+        console.log(error);
+      });
   };
 
   comment = e => {
