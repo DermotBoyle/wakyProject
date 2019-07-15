@@ -2,6 +2,7 @@ const express = require("express");
 const server = express();
 const Veterinary = require("./model/Veterinary");
 const User = require("./model/User");
+const Rate = require("./model/Rate")
 const path = require("path");
 const bodyParser = require("body-parser");
 const sha1 = require("sha1");
@@ -127,6 +128,7 @@ server.post("/api/registration", (req, res) => {
       data.objectId = Math.floor(
         Math.random() * Number.MAX_SAFE_INTEGER
       ).toString(32);
+      
       const user = new User(data);
 
       user.save((err, results) => {
@@ -186,9 +188,31 @@ server.post("/api/login", (req, res, next) => {
 
 // ROUTE 06: /api/logout                         SIGN OUT
 
-server.post("/api/logout", (req, res, next) => {
+server.post('/api/logout', (req, res, next) => {
   res.clearCookie("jwt").send();
 });
+
+
+// ROUTE 07: /api/user/me
+
+server.post('/api/user/me/comment', (req, res)=>{
+  const rate = new Rate(req.body)
+
+  rate.save((err, results) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("An error occured with your comment");
+    } else {
+      console.log("Comment done", {
+        rate,
+        results
+      });
+      res.status(201);
+      res.json(results);
+    }
+  });
+
+})
 
 server.listen(port, function() {
   console.log("Listening on port " + port);
