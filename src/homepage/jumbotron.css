@@ -66,7 +66,7 @@ p.lead {
     width: 25em;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     padding: 2em !important;
     border: none;
@@ -91,6 +91,7 @@ p.lead {
 
   p.display-3 {
     margin-left: 0 !important;
+    margin-top: 0 !important;
   }
 
   div.input-group {
