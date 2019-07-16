@@ -78,7 +78,8 @@ passport.use(
 
 // -----------------------------------------  API  ---------------------------------------------------
 
-/// ROUTE 00: /api                          returns "API list"
+
+// ROUTE 00: /api                          returns "API list"
 
 server.get("/api", (req, res) => {
   res.write("/api/veterinary                List of veterinaries\n");
@@ -93,7 +94,8 @@ server.get("/api", (req, res) => {
   res.end();
 });
 
-/// ROUTE 01: /api/veterinary               return "Vet array (JSON)"
+
+// ROUTE 01: /api/veterinary               return "Vet array (JSON)"
 
 server.get("/api/veterinary", (req, res) => {
   Veterinary.find(req.query, (err, result) => {
@@ -102,14 +104,28 @@ server.get("/api/veterinary", (req, res) => {
   });
 });
 
-/// ROUTE 02: /api/veterinary/:internalId           return "1 vet object"
 
-server.get("/api/veterinary/:internalId", (req, res) => {
-  Veterinary.find({ internalId: req.params.internalId }, (err, result) => {
+// ROUTE 02: /api/veterinary/:internalId           return "1 vet object"
+
+server.get("/api/veterinary/:objectId", (req, res) => {
+  Veterinary.find({ objectId: req.params.objectId }, (err, result) => {
     if (err) console.log(err);
     res.json(result[0]);
   });
 });
+
+
+// ROUTE 03:  /api/veterinary/:internalId/comment
+
+server.get('/api/veterinary/comment/:objectId', (req, res) => {
+
+  Rate.find({"veterinary.objectId":  req.params.objectId}, (err, result) => {
+    console.log(req.params.objectId, result)
+    if (err) console.log(err);
+    else result.forEach(r=>res.json(r.comment));
+  });
+});
+
 
 //  ROUTE 03: /api/registration                    SIGN UP
 
@@ -148,10 +164,10 @@ server.post("/api/registration", (req, res) => {
   });
 });
 
-/// ROUTE 04: /api/user/me                           return our user
 
-server.get(
-  "/api/user/me",
+// ROUTE 04: /api/user/me                           return our user
+
+server.get("/api/user/me",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     console.log("jwt extracted", req.user);
@@ -162,6 +178,7 @@ server.get(
     });
   }
 );
+
 
 // ROUTE 05:  /api/login                          SIGN IN
 
@@ -186,11 +203,13 @@ server.post("/api/login", (req, res, next) => {
   })(req, res, next);
 });
 
+
 // ROUTE 06: /api/logout                         SIGN OUT
 
 server.post("/api/logout", (req, res, next) => {
   res.clearCookie("jwt").send();
 });
+
 
 // ROUTE 07: /api/user/me
 
