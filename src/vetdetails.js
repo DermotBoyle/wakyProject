@@ -6,9 +6,13 @@ import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import { Container, Row, Col, Button, Input } from "reactstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
+import {
+  faStar,
+  faStarHalf,
+  faCheckCircle
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-library.add(fab, faStar, faStarHalf);
+library.add(fab, faStar, faStarHalf, faCheckCircle);
 
 class Vetdetails extends React.Component {
   constructor(props) {
@@ -18,7 +22,7 @@ class Vetdetails extends React.Component {
       lat: 40.416775,
       lng: -3.70379,
       zoom: 13,
-      users: [],
+      users: undefined,
       starClick: false,
       value: 0,
       bgColor1: "",
@@ -153,7 +157,7 @@ class Vetdetails extends React.Component {
         ))}
         <div className="mainContainer">
           <div className="vetdetailMapWrapper">
-            <Map center={position} zoom={this.state.zoom}>
+            <Map className="detailMap" center={position} zoom={this.state.zoom}>
               <TileLayer
                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -182,49 +186,49 @@ class Vetdetails extends React.Component {
               ))}
             </Map>
             <div className="infodetail">
-              <div className="ratings">
-                <Container className="pointContainer">
-                  <Row className="pointRow">
-                    <Col className="points">
-                      <h2>4.5</h2>
-                    </Col>
-                    <Col className="pointsDetails">
-                      <Row className="pointTitle">
-                        Puntuacion del establecimiento
-                      </Row>
-                      <Row />
-                      <Row>
-                        {" "}
-                        <FontAwesomeIcon
-                          icon="star"
-                          style={{ color: "yellow" }}
-                        />
-                        <FontAwesomeIcon
-                          icon="star"
-                          style={{ color: "yellow" }}
-                        />
-                        <FontAwesomeIcon
-                          icon="star"
-                          style={{ color: "yellow" }}
-                        />
-                        <FontAwesomeIcon
-                          icon="star"
-                          style={{ color: "yellow" }}
-                        />
-                        <FontAwesomeIcon
-                          icon="star-half"
-                          style={{ color: "yellow" }}
-                        />
-                        10 opiniones
-                      </Row>
-                    </Col>
-                  </Row>
+              <Container className="pointContainer">
+                <Row className="pointRow">
+                  <Col className="points">
+                    <h2>4.5</h2>
+                  </Col>
+                  <Col className="pointsDetails">
+                    <Row className="pointTitle">
+                      Puntuacion del establecimiento
+                    </Row>
+                    <Row />
+                    <Row className="starRow">
+                      {" "}
+                      <FontAwesomeIcon
+                        icon="star"
+                        style={{ color: "yellow" }}
+                      />
+                      <FontAwesomeIcon
+                        icon="star"
+                        style={{ color: "yellow" }}
+                      />
+                      <FontAwesomeIcon
+                        icon="star"
+                        style={{ color: "yellow" }}
+                      />
+                      <FontAwesomeIcon
+                        icon="star"
+                        style={{ color: "yellow" }}
+                      />
+                      <FontAwesomeIcon
+                        icon="star-half"
+                        style={{ color: "yellow" }}
+                      />
+                      10 opiniones
+                    </Row>
+                  </Col>
+                </Row>
+                {this.state.users ? (
                   <Container className="userCommentContainer">
                     <h2 className="userCommentTitle">Leave a comment & rate</h2>
                     <Row
                       style={{
                         marginBottom: "1em",
-                        marginLeft: "1em",
+                        marginLeft: ".2em",
                         fontSize: "2em"
                       }}
                     >
@@ -285,51 +289,60 @@ class Vetdetails extends React.Component {
                       </Col>
                     </Row>
                   </Container>
-                  <Container className="contactoWrapper">
-                    <h2 className="contactoTitle">Contacto</h2>
-                    <Row className="contactoContainer">
-                      <Row className="rowContacto">
-                        <Col className="Contacto" />
-                      </Row>
-                      {veterinarias.map(veterinaria => (
-                        <Row className="tlf">
-                          <Col>
-                            <p className="tlfNames">
-                              Telefono <br />
-                              Telefono 24hr <br />
-                              Email <br />
-                              Web
-                            </p>
-                          </Col>
-                          <Col>
-                            <p className="tlfDetails">
-                              {veterinaria.name} <br />
-                              {veterinaria.phone} <br />
-                              {veterinaria.email} <br />
-                              {veterinaria.web}
-                            </p>
-                          </Col>
+                ) : (
+                  <Container
+                    className="userCommentContainer"
+                    style={{ display: "none" }}
+                  >
+                    }
+                    <Container className="contactoWrapper">
+                      <h2 className="contactoTitle">Contacto</h2>
+                      <Row className="contactoContainer">
+                        <Row className="rowContacto">
+                          <Col className="Contacto" />
                         </Row>
-                      ))}
-                    </Row>
+                        {veterinarias.map(veterinaria => (
+                          <Row className="tlf">
+                            <Col>
+                              <p className="tlfNames">
+                                Telefono <br />
+                                Telefono 24hr <br />
+                                Email <br />
+                                Web
+                              </p>
+                            </Col>
+                            <Col>
+                              <p className="tlfDetails">
+                                {veterinaria.name} <br />
+                                {veterinaria.phone} <br />
+                                {veterinaria.email} <br />
+                                {veterinaria.web}
+                              </p>
+                            </Col>
+                          </Row>
+                        ))}
+                      </Row>
+                    </Container>
                   </Container>
-                  {veterinarias.map(veterinaria => (
-                    <div className="horarioContainer">
-                      <h4 className="horarioTitle">Horario</h4>
+                )}
 
-                      <div className="horariodetails">
-                        {veterinaria.scheduleString}
-                      </div>
+                {veterinarias.map(veterinaria => (
+                  <div className="horarioContainer">
+                    <h4 className="horarioTitle">Horario</h4>
+
+                    <div className="horariodetails">
+                      {veterinaria.scheduleString}
                     </div>
-                  ))}
-                  <Button className="pideCita">¡Pide Cita!</Button>
-                  <p className="sugerircambios">Sugerir Cambios</p>
-                </Container>
-              </div>
+                  </div>
+                ))}
+                <Button className="pideCita">¡Pide Cita!</Button>
+                <p className="sugerircambios">Sugerir Cambios</p>
+              </Container>
             </div>
           </div>
         </div>
 
+        {/* <div className="userContainer"> */}
         <div className="descriptionContainer">
           <h4 className="vetdetaildescription">Descripcion</h4>
           {veterinarias.map(veterinaria => (
@@ -406,7 +419,7 @@ class Vetdetails extends React.Component {
                       width: "max-content"
                     }}
                   >
-                    Punctuacion del establecimiento
+                    Puntuacion del establecimiento
                   </Row>
                   <Row />
                   <Row>
@@ -430,18 +443,41 @@ class Vetdetails extends React.Component {
         </div>
 
         <div className="reviewContainer">
+          <p className="starRating">
+            <FontAwesomeIcon icon="star" style={{ color: "gold" }} />
+            <FontAwesomeIcon icon="star" style={{ color: "gold" }} />
+            <FontAwesomeIcon icon="star" style={{ color: "gold" }} />
+            <FontAwesomeIcon icon="star" style={{ color: "gold" }} />{" "}
+            <FontAwesomeIcon icon="star-half" style={{ color: "gold" }} />
+          </p>
           <p className="commentRating">
             Trató inmejorable con mi perro y profesionalidad también
             inmejorable. Recomiendo esta clínica veterinaria.
           </p>
           <div className="reviewUser">
-            <p className="userName">Maria Sanchez &nbsp; </p>
-            <p ClassName="verifiedUser">yes &nbsp; </p>
+            <p
+              className="userName"
+              style={{ color: "#4496ae", fontWeight: "bold" }}
+            >
+              Maria Sanchez &nbsp;{" "}
+            </p>
+            <p ClassName="verifiedUser">
+              <FontAwesomeIcon icon="check-circle" style={{ color: "black" }} />{" "}
+              &nbsp;{" "}
+            </p>
             <p className="userTimeOfComment">hace 3 dias</p>
           </div>
         </div>
 
         <div className="reviewContainer">
+          <p className="starRating">
+            <FontAwesomeIcon icon="star" style={{ color: "gold" }} />
+            <FontAwesomeIcon icon="star" style={{ color: "gold" }} />
+            <FontAwesomeIcon icon="star" style={{ color: "gold" }} />
+            <FontAwesomeIcon icon="star" style={{ color: "gold" }} />
+            <FontAwesomeIcon icon="star" style={{ color: "gold" }} />{" "}
+          </p>
+
           <p className="commentRating">
             Unos profesionales de categoría. Hay veterinarios que miran el
             dinero antes que la salud del animal, da gusto ver qué hay clínicas
@@ -449,11 +485,24 @@ class Vetdetails extends React.Component {
             peludos
           </p>
           <div className="reviewUser">
-            <p className="userName">Jose Leon &nbsp; </p>
-            <p ClassName="verifiedUser">yes &nbsp; </p>
+            <p
+              className="userName"
+              style={{ color: "#4496ae", fontWeight: "bold" }}
+            >
+              Jose Leon &nbsp;{" "}
+            </p>
+            <p ClassName="verifiedUser">
+              {" "}
+              <FontAwesomeIcon
+                icon="check-circle"
+                style={{ color: "black" }}
+              />{" "}
+              &nbsp;{" "}
+            </p>
             <p className="userTimeOfComment">hace un mes</p>
           </div>
         </div>
+        {/* </div> */}
       </>
     );
   }

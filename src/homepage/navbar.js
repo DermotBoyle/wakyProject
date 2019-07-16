@@ -64,8 +64,9 @@ export default class NavBar extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
-
   render() {
+    console.log(this.props.user);
+
     return (
       <div>
         <Navbar
@@ -98,6 +99,7 @@ export default class NavBar extends React.Component {
                   to="registration"
                   color="warning"
                   size="xs"
+                  style={{ borderRadius: "2em", width: "8em" }}
                   onClick={this.logOut}
                 >
                   Log Out
@@ -108,6 +110,7 @@ export default class NavBar extends React.Component {
                   color="success"
                   size="xs"
                   onClick={this.show}
+                  style={{ borderRadius: "2em", width: "8em" }}
                 >
                   Iniciar Sesion
                 </Button>

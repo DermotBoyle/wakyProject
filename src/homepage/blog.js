@@ -53,18 +53,18 @@ class Blog extends Component {
                       icon="calendar-alt"
                       style={{ color: "black" }}
                     />{" "}
-                    &nbsp; Date &nbsp;
+                    &nbsp; 21/07/2019 &nbsp;
                   </span>
                   <span>
                     {" "}
                     <FontAwesomeIcon icon="eye" style={{ color: "black" }} />
-                    &nbsp; views
+                    &nbsp; 420
                   </span>
                   <span>
                     {" "}
                     &nbsp;
                     <FontAwesomeIcon icon="tag" style={{ color: "black" }} />
-                    &nbsp; tags
+                    &nbsp; #petpictures
                   </span>
                 </CardText>
               </CardBody>
@@ -96,12 +96,12 @@ class Blog extends Component {
                       icon="calendar-alt"
                       style={{ color: "black" }}
                     />
-                    &nbsp; Date &nbsp;
+                    &nbsp; 12/07/2019 &nbsp;
                   </span>
                   <span>
                     {" "}
                     <FontAwesomeIcon icon="eye" style={{ color: "black" }} />
-                    &nbsp; views &nbsp;
+                    &nbsp; 1244 &nbsp;
                   </span>
                   <span>
                     {" "}
@@ -109,7 +109,7 @@ class Blog extends Component {
                       icon="tag"
                       style={{ color: "black" }}
                     />{" "}
-                    &nbsp; tags
+                    &nbsp; #funnydogs
                   </span>
                 </CardText>
               </CardBody>
@@ -138,15 +138,15 @@ class Blog extends Component {
                       icon="calendar-alt"
                       style={{ color: "black" }}
                     />
-                    &nbsp; Date &nbsp;
+                    &nbsp; 15/07/2019 &nbsp;
                   </span>
                   <span>
                     <FontAwesomeIcon icon="eye" style={{ color: "black" }} />
-                    &nbsp; views &nbsp;
+                    &nbsp; 106 &nbsp;
                   </span>
                   <span>
                     <FontAwesomeIcon icon="tag" style={{ color: "black" }} />
-                    &nbsp; tags
+                    &nbsp; #Pets
                   </span>
                 </CardText>
               </CardBody>

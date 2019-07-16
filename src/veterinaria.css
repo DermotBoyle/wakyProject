@@ -75,6 +75,10 @@ div.mapVetContainer.container {
     width: 101em !important;
   }
 
+  div.starRow.row {
+    margin: 0;
+  }
+
   div.input-group {
     width: 80% !important;
     margin-left: 1em !important;

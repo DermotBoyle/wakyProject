@@ -144,7 +144,9 @@ class NewVetsCarousel extends Component {
                             }`)
                           }
                           href="#"
-                        />
+                        >
+                          {veterinaria.name}
+                        </a>
                       </CardTitle>
                       <p className="vetupdate">
                         last updated &nbsp;
