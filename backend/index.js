@@ -22,9 +22,12 @@ const secret = "As#zB+U=22&FIaIm";
 
 server.set("port", port);
 
+// Re-dirigir a React Router
 server.use("/", express.static(path.join(__dirname, "../build")));
 server.use("/veterinaria", express.static(path.join(__dirname, "../build")));
+server.use("/details", express.static(path.join(__dirname, "../build")));
 
+// Middleware
 server.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
