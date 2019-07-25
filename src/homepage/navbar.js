@@ -76,7 +76,7 @@ export default class NavBar extends React.Component {
           style={{ boxShadow: "0 4px 4px -2px rgba(0,0,0,.2)" }}
           onKeyPress={this.KeyPressed}
         >
-          <a href='/'><img src={Logo} width="13%" /></a>
+          <a href='/'><img src={Logo} width="40%" /></a>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
