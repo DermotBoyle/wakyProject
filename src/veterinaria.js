@@ -34,7 +34,7 @@ class Veterinaria extends Component {
   componentDidMount = () => {
     const query = qs.parse(window.location.search, {ignoreQueryPrefix:true});
     const url =  (query.lat && query.long) ? 
-                      `/api/veterinary?lat=${query.lat}&long=${query.long}&dist=${query.dist}` :
+                      `/api/veterinary?lat=${query.lat}&long=${query.long}&dist=${query.dist||2}` :
                       `/api/veterinary?cp=${query.q||'28025'}` ;
 
     console.log(window.location.search, query);
