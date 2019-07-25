@@ -32,10 +32,14 @@ class Veterinaria extends Component {
     console.log(window.location.search, qs.parse(window.location.search));
   }*/
   componentDidMount = () => {
-    const query = qs.parse(window.location.search);
-    const postcode = query["?q"] || "28025";
+    const query = qs.parse(window.location.search, {ignoreQueryPrefix:true});
+    const url =  (query.lat && query.long) ? 
+                      `/api/veterinary?lat=${query.lat}&long=${query.long}&dist=${query.dist}` :
+                      `/api/veterinary?cp=${query.q||'28025'}` ;
+
     console.log(window.location.search, query);
-    fetch("/api/veterinary?cp=" + postcode) // "/api/veterinary?cp=" + e.target.value // dispaly in the map
+
+    fetch(url) // "/api/veterinary?cp=" + e.target.value // dispaly in the map
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -165,9 +169,7 @@ class Veterinaria extends Component {
                               }}
                             >
                               <a
-                                onClick={() =>
-                                  (window.location.href = `/details?q=${
-                                    veterinaria.objectId
+                                onClick={() => (window.location.href = `/details?q=${veterinaria.objectId
                                   }`)
                                 }
                                 href="#"
