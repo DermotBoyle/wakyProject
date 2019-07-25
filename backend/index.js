@@ -105,6 +105,7 @@ server.get("/api", (req, res) => {
 // ROUTE 01: /api/veterinary               return "Vet array (JSON)"
 
 server.get("/api/veterinary", (req, res) => {
+  const limit = Number(req.limit) || 200; // default max 200 results
   if(req.query.lat && req.query.long){
     const lat = Number(req.query.lat); 
     const long = Number(req.query.long);
@@ -115,13 +116,13 @@ server.get("/api/veterinary", (req, res) => {
     Veterinary.find({
       'geolocation.latitude': {$gte:lat-degrees, $lte:lat+degrees},
       'geolocation.longitude': {$gte: long-degrees, $lte: long+degrees} 
-    }, (err, results)=> {
+    }, { limit }, (err, results)=> {
       if (err) console.log(err);
       res.json(results);
     })
 
   } else {
-    Veterinary.find(req.query, (err, result) => {
+    Veterinary.find(req.query, { limit }, (err, result) => {
       if (err) console.log(err);
       res.json(result);
     });
