@@ -116,16 +116,16 @@ server.get("/api/veterinary", (req, res) => {
     Veterinary.find({
       'geolocation.latitude': {$gte:lat-degrees, $lte:lat+degrees},
       'geolocation.longitude': {$gte: long-degrees, $lte: long+degrees} 
-    }, { limit }, (err, results)=> {
+    }, (err, results)=> {
       if (err) console.log(err);
       res.json(results);
-    })
+    }).limit(limit);
 
   } else {
-    Veterinary.find(req.query, { limit }, (err, result) => {
+    Veterinary.find(req.query, (err, result) => {
       if (err) console.log(err);
       res.json(result);
-    });
+    }).limit(limit);
   }
 });
 
