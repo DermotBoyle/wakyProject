@@ -94,52 +94,8 @@ class Veterinaria extends Component {
                   </span>
                 </h3>
                 <hr />
-                <p
-                  style={{
-                    fontFamily: "Open Sans, sans-serif",
-                    fontSize: "15px",
-                    fontWeight: "bold",
-                    color: "#6b6e7f",
-                    textAlign: "left",
-                    margin: "30px 0px 0px 20px",
-                    marginLeft: "8em"
-                  }}
-                >
-                  Introduce la direccion
-                </p>
               </div>
             ))}
-            <InputGroup
-              style={{
-                margin: "10px 0px 0px 10px",
-                marginLeft: "6em"
-              }}
-            >
-              <Input
-                onChange={this.addressInput}
-                onKeyPress={this.keyPressed}
-              />
-              <InputGroupAddon addonType="append">
-                <InputGroupText>
-                  <FontAwesomeIcon icon="search" style={{ color: "white" }} />
-                </InputGroupText>
-              </InputGroupAddon>
-            </InputGroup>
-            <br />
-            <Button
-              color="success"
-              size="s"
-              style={{
-                margin: "0px 0px 20px 20px",
-                marginLeft: "8em",
-                height: "40px",
-                color: "#f9f9f9"
-              }}
-              onClick={this.onButtonSubmit}
-            >
-              {" "}
-              Buscar{" "}
-            </Button>
           </div>
           <div className="background">
             <Container
@@ -147,6 +103,43 @@ class Veterinaria extends Component {
               style={{ display: "flex", justifyContent: "center" }}
             >
               <Row>
+                <Col
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      paddingTop: "1em"
+                    }}
+                >
+                  <div className="mapVetContainer" />
+                  <Map center={position} zoom={this.state.zoom}>
+                    <TileLayer
+                        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    {veterinarias.map((veterinaria, index) => (
+                        <Marker
+                            position={[
+                              veterinaria.geolocation.latitude,
+                              veterinaria.geolocation.longitude
+                            ]}
+                            key={index}
+                        >
+                          <Popup>
+                            <a
+                                onClick={() =>
+                                    (window.location.href = `/details?q=${
+                                        veterinaria.objectId
+                                        }`)
+                                }
+                                href="#"
+                            >
+                              {veterinaria.name}
+                            </a>
+                          </Popup>
+                        </Marker>
+                    ))}
+                  </Map>
+                </Col>
                 <Col className="mapVetCol">
                   <div className="cardsdiv">
                     {veterinarias.map(veterinaria => (
@@ -212,43 +205,6 @@ class Veterinaria extends Component {
                       </div>
                     ))}
                   </div>
-                </Col>
-                <Col
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    paddingTop: "1em"
-                  }}
-                >
-                  <div className="mapVetContainer" />
-                  <Map center={position} zoom={this.state.zoom}>
-                    <TileLayer
-                      attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    {veterinarias.map((veterinaria, index) => (
-                      <Marker
-                        position={[
-                          veterinaria.geolocation.latitude,
-                          veterinaria.geolocation.longitude
-                        ]}
-                        key={index}
-                      >
-                        <Popup>
-                          <a
-                            onClick={() =>
-                              (window.location.href = `/details?q=${
-                                veterinaria.objectId
-                              }`)
-                            }
-                            href="#"
-                          >
-                            {veterinaria.name}
-                          </a>
-                        </Popup>
-                      </Marker>
-                    ))}
-                  </Map>
                 </Col>
               </Row>
             </Container>
