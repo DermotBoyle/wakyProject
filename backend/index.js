@@ -17,6 +17,10 @@ const port = process.env.PORT || 3001;
 const salt =
   "=DPr4D2gHVP^39s#vkU="; /*posibilidad de pasarlo a la conf de heroku y al .env */
 const secret = "As#zB+U=22&FIaIm";
+const CIRCUNFERENCE_EARTH = 40075 ; // km
+const DEGREES_IN_CIRCUFERENCE = 360;
+const KM_IN_DEGREE = CIRCUNFERENCE_EARTH/DEGREES_IN_CIRCUFERENCE;
+const DEGREES_IN_KM = 1/KM_IN_DEGREE;
 
 //---------------------------------------- SETTINGS -----------------------------------------
 
@@ -102,10 +106,28 @@ server.get("/api", (req, res) => {
 // ROUTE 01: /api/veterinary               return "Vet array (JSON)"
 
 server.get("/api/veterinary", (req, res) => {
-  Veterinary.find(req.query, (err, result) => {
-    if (err) console.log(err);
-    res.json(result);
-  });
+  const limit = Number(req.limit) || 200; // default max 200 results
+  if(req.query.lat && req.query.long){
+    const lat = Number(req.query.lat); 
+    const long = Number(req.query.long);
+    const dist = req.query.dist || 2;  // dist in km
+    const degrees = dist*DEGREES_IN_KM;
+    console.log({lat, long, dist, degrees});
+
+    Veterinary.find({
+      'geolocation.latitude': {$gte:lat-degrees, $lte:lat+degrees},
+      'geolocation.longitude': {$gte: long-degrees, $lte: long+degrees} 
+    }, (err, results)=> {
+      if (err) console.log(err);
+      res.json(results);
+    }).limit(limit);
+
+  } else {
+    Veterinary.find(req.query, (err, result) => {
+      if (err) console.log(err);
+      res.json(result);
+    }).limit(limit);
+  }
 });
 
 
