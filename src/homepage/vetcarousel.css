@@ -1,0 +1,108 @@
+@import "../~slick-carousel/slick/slick.css";
+@import "../~slick-carousel/slick/slick-theme.css";
+
+h2.newvets {
+  font-family: "Roboto Slab", serif;
+  text-align: center;
+  padding-top: 2em;
+  color: #586c91;
+  font-weight: bold;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding-bottom: 2em;
+}
+.slick-next:before {
+  color: #586c91;
+  font-size: 40px;
+}
+
+.slick-prev:before {
+  color: #586c91;
+  font-size: 40px;
+}
+.slick-prev {
+  left: 3% !important;
+  z-index: 1;
+  width: 2em;
+  background: #4496ae;
+}
+.slick-next {
+  right: 3% !important;
+  z-index: 1;
+  width: 2em;
+  background: #4496ae;
+}
+
+.slick-track {
+  margin-bottom: 3em;
+}
+
+.slick-dots {
+  bottom: 8px;
+}
+img.placeholder {
+  width: 20em;
+  height: 12em;
+  border-radius: 15px 15px 0px 0px;
+}
+
+div.sliderWrapper {
+  display: flex !important;
+  width: 100%;
+  justify-content: center !important;
+}
+
+div.vetscarousel.card {
+  width: 20em !important;
+  margin-left: 1em;
+  border-radius: 15px;
+}
+
+.vetname {
+  text-align: initial;
+  color: #4496ae;
+  font-weight: bold;
+}
+
+.containerCarousel {
+  background-color: #f9f9f9;
+}
+
+div.vetcp {
+  text-align: initial;
+}
+
+#mapmark {
+  color: #4496ae;
+}
+
+p.vetupdate {
+  text-align: initial;
+}
+
+.containerCarouselTwo {
+  display: none !important;
+}
+
+@media screen and (max-width: 950px) {
+  .containerCarouselTwo {
+    display: block !important;
+  }
+
+  .slick-prev {
+    left: 2% !important;
+    z-index: 1;
+    width: 2em;
+    background: #4496ae;
+  }
+  .slick-next {
+    right: 15% !important;
+    z-index: 1;
+    width: 2em;
+    background: #4496ae;
+  }
+
+  .containerCarousel {
+    display: none !important;
+  }
+}

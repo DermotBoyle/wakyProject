@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap");
+
+.jumbotron {
+  position: relative;
+  background-image: url("../images/overlay.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 32rem;
+  background-repeat: no-repeat;
+  margin-bottom: 0em;
+}
+
+div.jumbotron-fluid {
+  margin-bottom: 0;
+}
+
+button.danger.btn.btn-secondary {
+  color: white;
+  width: 8em;
+  background-color: #4496ae;
+  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+.cont {
+  text-align: center;
+}
+
+div.input-group.homeInput {
+  display: inline-flex;
+  border-radius: 2rem;
+  width: 37rem;
+  border: 10px solid hsla(0, 0%, 100%, 0.5);
+  border-radius: 3em;
+}
+
+input.vetsearch.form-control {
+  display: initial;
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
+}
+
+.jumbotron-fluid {
+  background-color: black;
+}
+.btn {
+  border-radius: 0;
+}
+p.display-3 {
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  font-family: "Roboto Slab", serif;
+  margin-top: 4rem;
+}
+
+p.lead {
+  color: white;
+  font-family: "Roboto Slab", serif;
+}
+
+@media screen and (max-width: 750px) {
+  div.input-group.homeInput {
+    background-color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    width: 25em;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-flex;
+    justify-content: center;
+    padding: 2em !important;
+    border: none;
+  }
+
+  button.danger.btn.btn-secondary {
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background-color: #4496ae;
+    border-bottom-right-radius: 0em;
+    border-top-right-radius: 0em;
+    width: 25em;
+    margin-top: 1em;
+  }
+
+  input.vetsearch.form-control {
+    width: 30em;
+    border-radius: 5px;
+  }
+
+  p.display-3 {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  div.input-group {
+    margin-left: 0;
+  }
+}

@@ -22,3 +22,11 @@ nav {
 a.nav-link {
   margin-right: 1rem;
 }
+
+div.formwrapper {
+  border-radius: 20px;
+}
+
+div.inputfield {
+  margin-top: 1em;
+}

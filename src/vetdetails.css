@@ -1,0 +1,384 @@
+div.head {
+  padding-left: 12em;
+  padding-top: 50px;
+}
+
+h1.vetdetailheader {
+  color: #4496ae;
+  font-size: 30px;
+  font-family: "Roboto Slab", serif;
+}
+
+p.vetdetailaddress {
+  font-size: 18px;
+  font-family: "Roboto Slab", serif;
+  color: #5e5e5e;
+}
+
+h4.vetdetaildescription {
+  font-size: 18px;
+  color: #4496ae;
+  padding-left: 100px;
+}
+
+div.vetdetailMapWrapper {
+  display: flex;
+  padding-left: 12.5em;
+}
+
+div.leaflet-container {
+  height: 400px;
+  width: 68em;
+}
+
+p.vetdetaildescription {
+  padding-left: 100px;
+  margin-left: 0 !important;
+}
+
+div.col.points {
+  max-width: 25%;
+  color: #5e5e5e;
+}
+
+div.pointRow {
+  /* max-width: max-content; */
+  padding-left: 6px;
+  height: 5em;
+}
+
+div.col.pointsDetails {
+  padding: 0;
+  text-align: center;
+  width: 16em;
+}
+
+div.infodetail {
+  width: max-content;
+  margin-left: 11em;
+}
+
+div.pointTitle {
+  color: #4496ae;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+div.opinions {
+  font-weight: 600;
+  color: #5e5e5e;
+}
+
+div.ratings {
+  width: 27em;
+  -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  height: 4em;
+  padding-top: 8px;
+  padding-left: 6px;
+  border-radius: 1em;
+}
+
+h2.contactoTitle {
+  color: #4496ae;
+  font-size: 18px;
+  padding-top: 1em;
+}
+
+div.rowContacto {
+  margin-top: 1em;
+  padding-top: 0 !important;
+}
+
+p.tlfNames {
+  width: max-content;
+  color: #5e5e5e;
+}
+
+p.tlfDetails {
+  width: max-content;
+  color: #5e5e5e;
+}
+
+div.contactoContainer.row {
+  padding-left: 1em;
+  padding-top: 0 !important;
+  width: 27em;
+}
+
+div.contactoWrapper {
+  -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  border-radius: 1em;
+
+  padding-top: 0 !important;
+  width: 27.5em;
+}
+
+button.pideCita {
+  margin-top: 1em;
+  background-color: #4496ae;
+  width: 27em;
+  font-weight: 600;
+}
+
+div.pointContainer {
+  padding-left: 0 !important;
+}
+
+div.descriptionContainer {
+  width: 43em;
+  margin-left: 6em;
+}
+
+h4.admitidasDescription {
+  color: #4496ae;
+  font-size: 18px;
+  padding-top: 1em;
+  padding-left: 100px;
+  font-weight: 700;
+}
+
+div.animalCol {
+  padding-left: 0;
+}
+
+div.admitidasRow {
+  padding-left: 100px;
+}
+
+h4.especialidadesDescription {
+  color: #4496ae;
+  margin-left: 100px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+p.sugerircambios {
+  text-align: end;
+  font-size: 13px;
+  margin-top: 1em;
+  color: #4496ae;
+  font-weight: 500;
+}
+
+div.admitidasContainer {
+  width: 53em;
+  margin-left: 6em;
+}
+
+div.especialidadesContainer {
+  width: 53em;
+  margin-left: 6em;
+}
+
+div.especialidadesCol {
+  padding-left: 0;
+}
+
+div.especialidadesRow {
+  padding-left: 100px;
+  color: #5e5e5e;
+}
+
+div.ratingsLower {
+  width: 27em;
+  height: 4em;
+  padding-top: 8px;
+  padding-left: 6px;
+  box-shadow: rgba(0, 0, 0, 0.25) 1px 1px 2px -1px !important;
+}
+
+h3.opinionesTitle {
+  color: #4496ae;
+  font-size: 18px;
+  font-weight: 700;
+  padding-left: 20px;
+}
+
+div.reviewContainer {
+  padding-left: 100px;
+  border-width: 1px !important;
+  margin-left: 11em !important;
+}
+
+div.reviewUser {
+  display: flex;
+}
+
+div.horarioContainer {
+  margin-top: 2em;
+  -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  width: 27em;
+  border-radius: 1em;
+
+  padding: 1em;
+}
+
+h4.horarioTitle {
+  color: #4496ae;
+  font-size: 18px;
+}
+
+div.horariodetails {
+  color: #5e5e5e;
+}
+
+div.reviewContainer {
+  width: 35em;
+  margin-bottom: 1em;
+  border-bottom: none;
+  margin-left: 83px;
+  padding-left: 0 !important;
+  margin-top: 1em;
+}
+
+div.leaflet-container {
+  width: 52em;
+  height: 52em;
+}
+
+.starHover:hover {
+  color: yellow;
+}
+
+.starHover {
+  color: grey;
+}
+
+.commentSubmit {
+  margin-top: 1em;
+  margin-left: 17em;
+  border-radius: 2em;
+  width: 7em;
+  background-color: #4496ae;
+}
+
+.userCommentContainer {
+  -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  width: 27em;
+  padding: 1em;
+  margin-bottom: 2em;
+  border-radius: 1em;
+}
+
+.userContainer {
+  padding-left: 6em;
+}
+
+@media Screen and (max-width: 950px) {
+  div.head {
+    padding-left: 0.5em;
+  }
+
+  div.pointRow {
+    width: auto !important;
+  }
+
+  .detailMap {
+    display: none;
+  }
+
+  div.vetdetailMapWrapper {
+    display: flex;
+    padding-left: 0.5em;
+  }
+
+  div.userContainer {
+    padding-left: 0.5em;
+  }
+
+  h4.vetdetaildescription {
+    padding-left: 0.5em;
+  }
+
+  p.vetdetaildescription {
+    padding-left: 0.5em;
+  }
+
+  h4.admitidasDescription {
+    padding-left: 0.5em;
+  }
+
+  div.admitidasRow {
+    padding-left: 0.5em;
+  }
+  h4.especialidadesDescription {
+    margin-left: 0.5em;
+  }
+  div.especialidadesRow {
+    padding-left: 0.5em;
+  }
+
+  div.reviewContainer {
+    width: 23em !important;
+    margin-left: 0.5em !important;
+  }
+
+  .especialidadesContainer {
+    width: 22em !important;
+    margin-left: 0.5em !important;
+  }
+
+  div.admitidasContainer {
+    width: 22em !important;
+    margin-left: 0.5em !important;
+  }
+
+  div.descriptionContainer {
+    width: 96% !important;
+    margin-left: 0.5em !important;
+  }
+
+  p.sugerircambios {
+    text-align: inherit;
+  }
+  div.infodetail {
+    margin-left: 0.2em;
+  }
+
+  div.userCommentContainer {
+    width: 22em;
+  }
+
+  .commentSubmit {
+    margin-left: 0;
+  }
+  div.horarioContainer {
+    width: 22em;
+  }
+  button.pideCita {
+    width: 10em;
+  }
+  p.vetdetaildescription {
+    width: 22em;
+    padding-left: 10px;
+  }
+
+  div.ratingsLower {
+    width: 22em !important;
+    height: 4.5em;
+  }
+
+  p.commentRating {
+    width: 22em !important;
+    margin-left: 0 !important;
+  }
+  div.pointContainer.container {
+    padding: 0 !important;
+    width: 100%;
+  }
+  div.col.points {
+    max-width: 22%;
+  }
+  div.pointTitle.row {
+    font-size: 18px !important;
+    margin: 0 !important;
+  }
+}

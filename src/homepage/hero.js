@@ -26,27 +26,32 @@ class Head extends React.Component {
     window.location.href = "/veterinaria?q=" + this.state.input;
   };
 
+  keyPressed = event => {
+    if (event.key === "Enter") {
+      window.location.href = "/veterinaria?q=" + this.state.input;
+    }
+  };
+
   render() {
     return (
       <div>
         <Jumbotron fluid>
           <div className="overLay">
             <Container className="cont" fluid>
-              <p className="display-3">Encuentra tu veterinaria idea</p>
+              <p className="display-3">Encuentra tu veterinaria ideal</p>
               <p className="lead">
                 Descubre las mejores veterinarias cerca de ti
               </p>
-              <InputGroup>
+              <InputGroup className="homeInput">
                 <Input
                   className="vetsearch"
                   placeholder="Calle,Barrio o CP"
                   onChange={this.addressInput}
+                  onKeyPress={this.keyPressed}
                 />
-                <InputGroupAddon addonType="append">
-                  <Button className="danger" onClick={this.onButtonSubmit}>
-                    Buscar
-                  </Button>
-                </InputGroupAddon>
+                <Button className="danger" onClick={this.onButtonSubmit}>
+                  Buscar
+                </Button>
               </InputGroup>
             </Container>
           </div>
