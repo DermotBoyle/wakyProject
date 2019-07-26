@@ -1,8 +1,5 @@
 const express = require("express");
 const server = express();
-const Veterinary = require("./model/Veterinary");
-const User = require("./model/User");
-const Rate = require("./model/Rate");
 const path = require("path");
 const bodyParser = require("body-parser");
 const sha1 = require("sha1");
@@ -12,6 +9,10 @@ const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv").config();
 const LocalStrategy = require("passport-local").Strategy;
 const JwtStrategy = require("passport-jwt").Strategy;
+
+const Veterinary = require("./model/Veterinary");
+const User = require("./model/User");
+const Rate = require("./model/Rate");
 
 const port = process.env.PORT || 3001;
 const salt =
@@ -84,21 +85,21 @@ passport.use(
   })
 );
 
+
 // -----------------------------------------  API  ---------------------------------------------------
 
 
 // ROUTE 00: /api                          returns "API list"
 
 server.get("/api", (req, res) => {
-  res.write("/api/veterinary                List of veterinaries\n");
-  res.write("/api/veterinary/:objectId      Detail for veterinary\n");
-  res.write("/api/user/me                   The information from user\n");
-  res.write(
-    "/api/registration              Introduce info for first time from user\n"
-  );
-  res.write("/api/login                     User sign in\n");
-  res.write("api/logout                     User sign out\n");
-  res.write("");
+  res.write("/api/veterinary                     List of veterinaries\n");
+  res.write("/api/veterinary/:objectId           Detail for veterinary\n");
+  res.write("/api/veterinary/comment/:objectId   Every comment of each veterinary\n")
+  res.write("/api/registration                   Introduce info for first time from user\n");
+  res.write("/api/user/me                        The information from user\n");
+  res.write("/api/login                          User sign in\n");
+  res.write("api/logout                          User sign out\n");
+  res.write("/api/user/me/comment                To send a rate for a veterinary");
   res.end();
 });
 

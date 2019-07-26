@@ -82,13 +82,9 @@ class NewVetsCarousel extends Component {
                       <CardTitle className="vetname">
                         <p>
                           <a
-                            onClick={() =>
-                              (window.location.href = `/details?q=${
-                                veterinaria.objectId
-                              }`)
-                            }
-                            href="#"
-                          >
+                            onClick={() => (window.location.href = `/details?q=${
+                                veterinaria.objectId}`)} href="#">
+                            
                             {veterinaria.name}
                           </a>
                         </p>
@@ -137,14 +133,9 @@ class NewVetsCarousel extends Component {
                     />
                     <CardBody className="vetcarobody">
                       <CardTitle className="vetname">
-                        <a
-                          onClick={() =>
-                            (window.location.href = `/details?q=${
-                              veterinaria.objectId
-                            }`)
-                          }
-                          href="#"
-                        >
+                        <a onClick={() => (window.location.href = `/details?q=${
+                              veterinaria.objectId}`)} href="#">
+                          
                           {veterinaria.name}
                         </a>
                       </CardTitle>
