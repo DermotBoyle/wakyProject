@@ -45,18 +45,17 @@ export default class Contacto extends React.Component {
 
           <FormGroup tag="fieldset" row>
             <legend className="col-form-label col-sm-2">
-              Choose an option:
+              Elige una opción:
             </legend>
             <Col sm={10}>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="radio2" />I am user with a pet
+                  <Input type="radio" name="radio2" />Soy un usuario con mascota
                 </Label>
               </FormGroup>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="radio2" /> I am a veterinary
-                  business
+                  <Input type="radio" name="radio2" /> Soy un negocio de veterinaria
                 </Label>
               </FormGroup>
               <FormGroup check disabled>
@@ -69,7 +68,7 @@ export default class Contacto extends React.Component {
 
           <FormGroup check row>
             <Col sm={{ size: 10, offset: 2 }}>
-              <Button>Submit</Button>
+              <Button>Enviar</Button>
             </Col>
           </FormGroup>
         </Form>

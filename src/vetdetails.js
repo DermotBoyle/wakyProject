@@ -193,7 +193,7 @@ class Vetdetails extends React.Component {
                   </Col>
                   <Col className="pointsDetails">
                     <Row className="pointTitle">
-                      Puntuacion del establecimiento
+                      Puntuación del establecimiento
                     </Row>
                     <Row />
                     <Row className="starRow">
@@ -224,7 +224,7 @@ class Vetdetails extends React.Component {
                 </Row>
                 {this.state.users ? (
                   <Container className="userCommentContainer">
-                    <h2 className="userCommentTitle">Leave a comment & rate</h2>
+                    <h2 className="userCommentTitle">Deja un comentario & puntuación</h2>
                     <Row
                       style={{
                         marginBottom: "1em",
@@ -284,7 +284,7 @@ class Vetdetails extends React.Component {
                           className="commentSubmit"
                           onClick={this.handlecommentSubmit}
                         >
-                          Submit
+                          Enviar
                         </Button>
                       </Col>
                     </Row>
@@ -305,8 +305,8 @@ class Vetdetails extends React.Component {
                           <Row className="tlf">
                             <Col>
                               <p className="tlfNames">
-                                Telefono <br />
-                                Telefono 24hr <br />
+                                Teléfono <br />
+                                Teléfono 24hr <br />
                                 Email <br />
                                 Web
                               </p>
@@ -344,7 +344,7 @@ class Vetdetails extends React.Component {
 
         {/* <div className="userContainer"> */}
         <div className="descriptionContainer">
-          <h4 className="vetdetaildescription">Descripcion</h4>
+          <h4 className="vetdetaildescription">Descripción</h4>
           {veterinarias.map(veterinaria => (
             <p className="vetdetaildescription">{veterinaria.description}</p>
           ))}
@@ -364,7 +364,7 @@ class Vetdetails extends React.Component {
               <Col className="aniamlCol">
                 <p className="tlfDetails">
                   Gatos <br />
-                  Pajaros <br />
+                  Pájaros <br />
                 </p>
               </Col>
             </Row>
@@ -378,18 +378,18 @@ class Vetdetails extends React.Component {
               <Col className="especialidadesCol">
                 <p className="especialidadesNames">
                   Urgencias 24hr <br />
-                  Analisis Clinico
+                  Análisis Clínico
                   <br />
                   Laboratorio <br />
-                  Cardiologia
+                  Cardiología
                 </p>
               </Col>
               <Col className="especialidadesCol">
                 <p className="especialidadesNames">
-                  Peluqueria <br />
-                  Diagnostico por Imagen <br />
-                  Hospitalizacion <br />
-                  Cirugia <br />
+                  Peluquería <br />
+                  Diagnóstico por Imagen <br />
+                  Hospitalización <br />
+                  Cirugía <br />
                 </p>
               </Col>
             </Row>
@@ -419,7 +419,7 @@ class Vetdetails extends React.Component {
                       width: "max-content"
                     }}
                   >
-                    Puntuacion del establecimiento
+                    Puntuación del establecimiento
                   </Row>
                   <Row />
                   <Row>
@@ -451,7 +451,7 @@ class Vetdetails extends React.Component {
             <FontAwesomeIcon icon="star-half" style={{ color: "gold" }} />
           </p>
           <p className="commentRating">
-            Trató inmejorable con mi perro y profesionalidad también
+            Trato inmejorable con mi perro y profesionalidad también
             inmejorable. Recomiendo esta clínica veterinaria.
           </p>
           <div className="reviewUser">
@@ -459,13 +459,13 @@ class Vetdetails extends React.Component {
               className="userName"
               style={{ color: "#4496ae", fontWeight: "bold" }}
             >
-              Maria Sanchez &nbsp;{" "}
+              Maria Sánchez &nbsp;{" "}
             </p>
             <p ClassName="verifiedUser">
               <FontAwesomeIcon icon="check-circle" style={{ color: "black" }} />{" "}
               &nbsp;{" "}
             </p>
-            <p className="userTimeOfComment">hace 3 dias</p>
+            <p className="userTimeOfComment">hace 3 días</p>
           </div>
         </div>
 
@@ -480,16 +480,16 @@ class Vetdetails extends React.Component {
 
           <p className="commentRating">
             Unos profesionales de categoría. Hay veterinarios que miran el
-            dinero antes que la salud del animal, da gusto ver qué hay clínicas
+            dinero antes que la salud del animal, da gusto ver que hay clínicas
             que no son así. Recomendable para el cuidado de vuestros amigos
-            peludos
+            peludos.
           </p>
           <div className="reviewUser">
             <p
               className="userName"
               style={{ color: "#4496ae", fontWeight: "bold" }}
             >
-              Jose Leon &nbsp;{" "}
+              José León &nbsp;{" "}
             </p>
             <p ClassName="verifiedUser">
               {" "}

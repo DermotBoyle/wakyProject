@@ -24,7 +24,7 @@ class Footer extends Component {
             <p>Copyright 2017, Wakyma - Take Care of your Pet</p>
             <span>Aviso Legal</span>
             <span>
-              &nbsp; siguenos: &nbsp;{" "}
+              &nbsp; síguenos: &nbsp;{" "}
               <FontAwesomeIcon
                 icon={["fab", "facebook"]}
                 style={{ color: "#3e569e", fontSize: "25px" }}

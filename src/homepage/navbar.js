@@ -112,7 +112,7 @@ export default class NavBar extends React.Component {
                   onClick={this.show}
                   style={{ borderRadius: "2em", width: "8em" }}
                 >
-                  Iniciar Sesion
+                  Iniciar Sesión
                 </Button>
               )}
 

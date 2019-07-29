@@ -143,7 +143,7 @@ class Modal extends React.Component {
                     />
                   </div>
                   <div className="inputfield">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Contraseña</label>
                     <br />
                     <input
                       value={this.state.password}
@@ -153,7 +153,7 @@ class Modal extends React.Component {
                     />
                   </div>
                   <div className="inputfield">
-                    <label htmlFor="password">Confirm Password</label>
+                    <label htmlFor="password">Confirmación Contraseña</label>
                     <br />
                     <input
                       value={this.state.confirmPassword}
@@ -210,7 +210,7 @@ class Modal extends React.Component {
                     />
                   </div>
                   <div className="inputfield">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Contraseña</label>
                     <br />
                     <input
                       value={this.state.password}

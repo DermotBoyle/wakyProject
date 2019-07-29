@@ -8,7 +8,7 @@ class Veterinarias extends Component {
             <div>
                 <InputGroup>
                     <InputGroupAddon addonType="prepend">
-                        <Button>To the Left!</Button>
+                        <Button>A la izquierda!</Button>
                     </InputGroupAddon>
                     <Input />
                 </InputGroup>
