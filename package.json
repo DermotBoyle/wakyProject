@@ -25,7 +25,7 @@
     "passport-jwt": "^4.0.0",
     "passport-jwt-cookiecombo": "^1.0.5",
     "passport-local": "^1.0.0",
-    "qs": "^6.7.0",
+    "qs": "^6.7.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-flexbox-grid": "^2.1.2",
